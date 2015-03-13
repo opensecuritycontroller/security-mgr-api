@@ -61,6 +61,6 @@ public interface ApplianceManagerConnectorElement {
      */
     public byte[] getPublicKey();
 
-    public void triggerSync();
+    public void triggerSync(MgrChangeNotification mgrChangeNotification);
 
 }
