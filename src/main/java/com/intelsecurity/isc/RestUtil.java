@@ -14,7 +14,7 @@ public class RestUtil {
     private static final Logger log = Logger.getLogger(RestUtil.class);
 
     public static SSLContext getSSLContext() {
-        // TODO: We trust all managers right now. Later we need to import certificates and verify every connection with
+        // TODO: Future. We trust all managers right now. Later we need to import certificates and verify every connection with
         // given Trust store
         TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
 
