@@ -4,5 +4,5 @@ public interface ManagerSecurityGroupInterfaceElement {
     public String getId();
     public String getName();
     public String getPolicyId();
-    public String getServiceProfileId();
+    public String getTag();
 }
