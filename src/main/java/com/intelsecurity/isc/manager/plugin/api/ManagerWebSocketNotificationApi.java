@@ -1,15 +1,21 @@
 package com.intelsecurity.isc.manager.plugin.api;
 
+import javax.websocket.Session;
+
+import com.intelsecurity.isc.element.MgrChangeNotification;
 
 public interface ManagerWebSocketNotificationApi {
 
-    /**
-     * @return
-     *         True if client is Processing message
-     *         False if Client is not processing incoming messages
-     *
-     *         This method is used to determine weather we can close an active session or not.
-     */
-    public boolean isProcessingMessage();
+    public int getPort();
+
+    public String getUrl();
+
+    public boolean isHttps();
+
+    public void login();
+
+    public void subscribe(Session session);
+
+    public MgrChangeNotification translateMessage(String message);
 
 }

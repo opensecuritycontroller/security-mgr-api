@@ -1,6 +1,5 @@
 package com.intelsecurity.isc.manager.plugin.api;
 
-import com.intelsecurity.isc.WebSocketClient;
 import com.intelsecurity.isc.element.ApplianceManagerConnectorElement;
 import com.intelsecurity.isc.element.VirtualSystemElement;
 import com.intelsecurity.isc.manager.plugin.ManagerAuthenticationType;
@@ -16,8 +15,6 @@ public interface ApplianceManagerApi {
 
     public abstract ManagerWebSocketNotificationApi createManagerWebSocketNotificationApi(
             ApplianceManagerConnectorElement mc) throws Exception;
-
-    public abstract WebSocketClient createWebSocketClientApi(ApplianceManagerConnectorElement mc) throws Exception;
 
     public abstract ManagerUrlNotificationApi createManagerUrlNotificationApi(ApplianceManagerConnectorElement mc)
             throws Exception;
