@@ -26,7 +26,7 @@ public interface VirtualSystemElement {
     /**
      * Return the owning distributed appliance for this virtual system
      *
-     * @return Distributed Appliance inteface object
+     * @return Distributed Appliance interface object
      */
     public DistributedApplianceElement getDistributedAppliance();
 
