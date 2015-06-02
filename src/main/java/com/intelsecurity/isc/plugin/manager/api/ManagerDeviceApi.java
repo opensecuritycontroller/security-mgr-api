@@ -5,6 +5,7 @@ import java.util.List;
 import com.intelsecurity.isc.plugin.manager.element.DistributedApplianceInstanceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceMemberElement;
+import com.intelsecurity.isc.plugin.manager.element.ManagerEndpointGroupElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfaceElement;
 
 public interface ManagerDeviceApi {
@@ -219,5 +220,35 @@ public interface ManagerDeviceApi {
      * @return Opaque byte array representing member device configuration
      */
     public abstract byte[] getDeviceMemberConfig2(DistributedApplianceInstanceElement dai);
+
+
+    public abstract boolean isEndpointGroupSyncSupport();
+
+    /**
+     * Create an endpoint group
+     * @param name Name of the endpoint group
+     * @return The Manager Id for the newly created endpoint group object
+     */
+    public abstract String createEndpointGroup(String name)throws Exception;
+
+    /**
+     * Update an endpoint group object
+     * @param mgrId The endpoint group object id
+     * @param name The updated name of the endpoint group object
+     */
+    public abstract void updateEndpointGroup(String mgrId, String name) throws Exception;
+
+    /**
+     * Delete an endpoint group object
+     * @param mgrId The endpoint group object id
+     * @throws Exception
+     */
+    public abstract void deleteEndpointGroup(String mgrId) throws Exception;
+
+    /**
+     * List all endpoint groups
+     * @return List of endpoint groups
+     */
+    public abstract List<? extends ManagerEndpointGroupElement> getEndpointGroupList() throws Exception;
 
 }
