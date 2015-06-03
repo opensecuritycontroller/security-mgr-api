@@ -227,20 +227,20 @@ public interface ManagerDeviceApi {
     /**
      * Create an endpoint group
      * @param name Name of the endpoint group
-     * @return The Manager Id for the newly created endpoint group object
+     * @return The Manager Id for the newly created Security Group object
      */
     public abstract String createEndpointGroup(String name)throws Exception;
 
     /**
-     * Update an endpoint group object
-     * @param mgrId The endpoint group object id
-     * @param name The updated name of the endpoint group object
+     * Update an Security Group object
+     * @param mgrId The Security Group object id
+     * @param name The updated name of the Security Group object
      */
     public abstract void updateEndpointGroup(String mgrId, String name) throws Exception;
 
     /**
-     * Delete an endpoint group object
-     * @param mgrId The endpoint group object id
+     * Delete an Security Group object
+     * @param mgrId The Security Group object id
      * @throws Exception
      */
     public abstract void deleteEndpointGroup(String mgrId) throws Exception;
