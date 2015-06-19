@@ -35,6 +35,8 @@ public interface ApplianceManagerApi {
 
     public abstract ManagerAuthenticationType getAuthenticationType();
 
+    public abstract boolean isNotificationSupported();
+
     public abstract ManagerNotificationSubscriptionType getNotificationType();
 
 }

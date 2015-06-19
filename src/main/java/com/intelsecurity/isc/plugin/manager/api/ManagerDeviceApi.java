@@ -118,8 +118,7 @@ public interface ManagerDeviceApi {
      * @return
      * @throws Exception
      */
-    public abstract String createSecurityGroupInterface(String name, String policyId, String serviceProfileId)
-            throws Exception;
+    public abstract String createSecurityGroupInterface(String name, String policyId, String tag) throws Exception;
 
     /**
      * Update security group attributes (name, policy assignment) given its id
@@ -130,8 +129,8 @@ public interface ManagerDeviceApi {
      *            The updated attributes
      * @throws Exception
      */
-    public abstract void updateSecurityGroupInterface(String securityGroupId, String name, String policyId,
-            String serviceProfileId) throws Exception;
+    public abstract void updateSecurityGroupInterface(String id, String name, String policyId, String tag)
+            throws Exception;
 
     /**
      * Delete security group interface within context of VS device container
@@ -221,32 +220,39 @@ public interface ManagerDeviceApi {
      */
     public abstract byte[] getDeviceMemberConfig2(DistributedApplianceInstanceElement dai);
 
-
     public abstract boolean isEndpointGroupSyncSupport();
 
     /**
      * Create an endpoint group
-     * @param name Name of the endpoint group
+     *
+     * @param name
+     *            Name of the endpoint group
      * @return The Manager Id for the newly created Security Group object
      */
-    public abstract String createEndpointGroup(String name)throws Exception;
+    public abstract String createEndpointGroup(String name) throws Exception;
 
     /**
      * Update an Security Group object
-     * @param mgrId The Security Group object id
-     * @param name The updated name of the Security Group object
+     *
+     * @param mgrId
+     *            The Security Group object id
+     * @param name
+     *            The updated name of the Security Group object
      */
     public abstract void updateEndpointGroup(String mgrId, String name) throws Exception;
 
     /**
      * Delete an Security Group object
-     * @param mgrId The Security Group object id
+     *
+     * @param mgrId
+     *            The Security Group object id
      * @throws Exception
      */
     public abstract void deleteEndpointGroup(String mgrId) throws Exception;
 
     /**
      * List all endpoint groups
+     *
      * @return List of endpoint groups
      */
     public abstract List<? extends ManagerEndpointGroupElement> getEndpointGroupList() throws Exception;
