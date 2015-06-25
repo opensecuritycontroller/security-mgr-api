@@ -5,7 +5,7 @@ import java.util.List;
 import com.intelsecurity.isc.plugin.manager.element.DistributedApplianceInstanceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceMemberElement;
-import com.intelsecurity.isc.plugin.manager.element.ManagerEndpointGroupElement;
+import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfaceElement;
 
 public interface ManagerDeviceApi {
@@ -220,16 +220,16 @@ public interface ManagerDeviceApi {
      */
     public abstract byte[] getDeviceMemberConfig2(DistributedApplianceInstanceElement dai);
 
-    public abstract boolean isEndpointGroupSyncSupport();
+    public abstract boolean isSecurityGroupSyncSupport();
 
     /**
-     * Create an endpoint group
+     * Create an security group
      *
      * @param name
-     *            Name of the endpoint group
+     *            Name of the security group
      * @return The Manager Id for the newly created Security Group object
      */
-    public abstract String createEndpointGroup(String name) throws Exception;
+    public abstract String createSecurityGroup(String name) throws Exception;
 
     /**
      * Update an Security Group object
@@ -239,7 +239,7 @@ public interface ManagerDeviceApi {
      * @param name
      *            The updated name of the Security Group object
      */
-    public abstract void updateEndpointGroup(String mgrId, String name) throws Exception;
+    public abstract void updateSecurityGroup(String mgrId, String name) throws Exception;
 
     /**
      * Delete an Security Group object
@@ -248,13 +248,13 @@ public interface ManagerDeviceApi {
      *            The Security Group object id
      * @throws Exception
      */
-    public abstract void deleteEndpointGroup(String mgrId) throws Exception;
+    public abstract void deleteSecurityGroup(String mgrId) throws Exception;
 
     /**
-     * List all endpoint groups
+     * List all security groups
      *
-     * @return List of endpoint groups
+     * @return List of security groups
      */
-    public abstract List<? extends ManagerEndpointGroupElement> getEndpointGroupList() throws Exception;
+    public abstract List<? extends ManagerSecurityGroupElement> getSecurityGroupList() throws Exception;
 
 }

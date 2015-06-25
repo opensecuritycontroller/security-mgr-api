@@ -1,6 +1,6 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
-public interface ManagerEndpointGroupElement {
+public interface ManagerSecurityGroupElement {
     public String getMgrId();
     public String getName();
 }
