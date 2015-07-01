@@ -67,12 +67,14 @@ public interface ManagerDeviceApi {
      * @param name
      *            A unique name for member device
      * @param ipAddress
-     *            IPv4 address
+     *            IPv4 publicly accessible address
+     * @param contactIpAddress
+     *            In case of NAT, IPv4 privately accessible
      * @return the unique identifier of the member device
      * @throws Exception
      */
-    public abstract String createDeviceMember(String name, String ipAddress, String vserverIpAddress, String gateway,
-            String prefixLength) throws Exception;
+    public abstract String createDeviceMember(String name, String ipAddress, String vserverIpAddress,
+            String contactIpAddress, String gateway, String prefixLength) throws Exception;
 
     /**
      * Delete member device given member device id from current VS device container
