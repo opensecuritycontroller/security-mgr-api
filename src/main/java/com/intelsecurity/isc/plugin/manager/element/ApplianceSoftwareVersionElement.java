@@ -9,4 +9,5 @@ public interface ApplianceSoftwareVersionElement {
      */
     public String getApplianceSoftwareVersion();
 
+    public String getApplianceModel();
 }

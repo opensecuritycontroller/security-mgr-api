@@ -73,8 +73,8 @@ public interface ManagerDeviceApi {
      * @return the unique identifier of the member device
      * @throws Exception
      */
-    public abstract String createDeviceMember(String name, String ipAddress, String vserverIpAddress,
-            String contactIpAddress, String gateway, String prefixLength) throws Exception;
+    public abstract String createDeviceMember(String name, String vserverIpAddress, String contactIpAddress,
+            String ipAddress, String gateway, String prefixLength) throws Exception;
 
     /**
      * Delete member device given member device id from current VS device container
