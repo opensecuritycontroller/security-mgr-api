@@ -2,7 +2,7 @@ package com.intelsecurity.isc.plugin.manager.api;
 
 import com.intelsecurity.isc.plugin.manager.element.ManagerNotificationRegistrationElement;
 
-public interface ManagerUrlNotificationApi {
+public interface ManagerUrlNotificationApi extends AutoCloseable {
 
     public abstract String createDomainNotificationRegistration(Integer port, String username, String password)
             throws Exception;

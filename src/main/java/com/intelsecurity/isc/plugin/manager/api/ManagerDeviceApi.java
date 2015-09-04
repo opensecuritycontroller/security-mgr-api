@@ -8,7 +8,7 @@ import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceMemberElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfaceElement;
 
-public interface ManagerDeviceApi {
+public interface ManagerDeviceApi extends AutoCloseable {
 
     /**
      * Find device given device id
@@ -231,7 +231,7 @@ public interface ManagerDeviceApi {
      *            Name of the security group
      * @return The Manager Id for the newly created Security Group object
      */
-    public abstract String createSecurityGroup(String name) throws Exception;
+    public abstract String createSecurityGroup(String name, String iscId) throws Exception;
 
     /**
      * Update an Security Group object
@@ -258,5 +258,7 @@ public interface ManagerDeviceApi {
      * @return List of security groups
      */
     public abstract List<? extends ManagerSecurityGroupElement> getSecurityGroupList() throws Exception;
+
+    public abstract ManagerSecurityGroupElement getSecurityGroupById(String mgrId) throws Exception;
 
 }
