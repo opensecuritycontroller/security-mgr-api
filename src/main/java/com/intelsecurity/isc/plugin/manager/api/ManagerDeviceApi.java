@@ -222,8 +222,6 @@ public interface ManagerDeviceApi extends AutoCloseable {
      */
     public abstract byte[] getDeviceMemberConfig2(DistributedApplianceInstanceElement dai);
 
-    public abstract boolean isSecurityGroupSyncSupport();
-
     /**
      * Create an security group
      *

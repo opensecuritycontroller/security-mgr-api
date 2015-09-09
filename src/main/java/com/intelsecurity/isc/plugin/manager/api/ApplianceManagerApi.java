@@ -39,4 +39,6 @@ public interface ApplianceManagerApi {
 
     public abstract ManagerNotificationSubscriptionType getNotificationType();
 
+    public abstract boolean isSecurityGroupSyncSupport();
+
 }
