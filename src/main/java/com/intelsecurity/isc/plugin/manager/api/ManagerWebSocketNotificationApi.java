@@ -6,7 +6,7 @@ import javax.websocket.Session;
 
 import com.intelsecurity.isc.plugin.manager.element.MgrChangeNotification;
 
-public interface ManagerWebSocketNotificationApi {
+public interface ManagerWebSocketNotificationApi extends AutoCloseable {
 
     public int getPort();
 
@@ -14,7 +14,7 @@ public interface ManagerWebSocketNotificationApi {
 
     public boolean isHttps();
 
-    public void login();
+    public String getHandshakeParameters();
 
     public void subscribe(Session session) throws IOException;
 

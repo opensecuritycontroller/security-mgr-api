@@ -77,6 +77,19 @@ public interface ManagerDeviceApi extends AutoCloseable {
             String ipAddress, String gateway, String prefixLength) throws Exception;
 
     /**
+     * Updates member device given current member device from current VS device container. This method needs to check if
+     * an update is required and update only if needed.
+     *
+     * @param id
+     *            The member device id to update
+     * @return the updated device member id or the same device member id if no updates are required.
+     * @throws Exception
+     */
+    public abstract String updateDeviceMember(ManagerDeviceMemberElement deviceElement,
+            String name, String vserverIpAddress, String contactIpAddress, String ipAddress, String gateway,
+            String prefixLength) throws Exception;
+
+    /**
      * Delete member device given member device id from current VS device container
      *
      * @param id
@@ -103,7 +116,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
      * @return The member device id. Null if not found.
      * @throws Exception
      */
-    public abstract String findDeviceMemberByName(String name) throws Exception;
+    public abstract ManagerDeviceMemberElement findDeviceMemberByName(String name) throws Exception;
 
     /**
      * Return the list of all member device elements for current VS device container
@@ -175,6 +188,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
     /**
      * If manager requires session creation before API calls, close() should be implementing session release.
      */
+    @Override
     public abstract void close();
 
     /**
