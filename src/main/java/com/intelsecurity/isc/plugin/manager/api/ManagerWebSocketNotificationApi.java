@@ -16,6 +16,8 @@ public interface ManagerWebSocketNotificationApi extends AutoCloseable {
 
     public String getHandshakeParameters();
 
+    public void logout() throws Exception;
+
     public void subscribe(Session session) throws IOException;
 
     public MgrChangeNotification translateMessage(String message);
