@@ -1,31 +1,36 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Distributed Appliance"
+ */
+
 public interface DistributedApplianceElement {
 
     /**
-     * Returns the Appliance Manager Connector used by the Distributed Appliance
-     *
-     * @return Appliance Manager Connector interface object
+     * 
+     * @return
+     *         Appliance Manager Connector interface object used by the Distributed Appliance
+     *         {@link ApplianceManagerConnectorElement}
      */
     public ApplianceManagerConnectorElement getApplianceManagerConnector();
 
     /**
-     * Returns the Appliance Definition used by the Distributed Appliance
-     *
-     * @return Appliance Definition interface object
+     * 
+     * @return
+     *         Appliance interface object used by the Distributed Appliance. {@link ApplianceElement}
      */
     public ApplianceElement getAppliance();
 
     /**
-     * Returns the Appliance Software Version used by the Distributed Appliance
-     *
-     * @return String representing the Appliance Software Version
+     * 
+     * @return
+     *         String representing the Appliance Software Version used by the Distributed Appliance
      */
     public String getApplianceVersion();
 
     /**
      * Not used.
-     *
+     * 
      * @return
      */
     public String getMgrSecretKey();

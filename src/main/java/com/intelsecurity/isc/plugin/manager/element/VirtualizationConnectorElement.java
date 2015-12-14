@@ -1,10 +1,14 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Virtualization Connector"
+ */
 public interface VirtualizationConnectorElement {
 
     /**
-     * Return Virtualization Connector name
+     * 
      * @return
+     *         Virtualization Connector name
      */
     public String getName();
 

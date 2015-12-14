@@ -1,60 +1,63 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Virtual System"
+ */
 public interface VirtualSystemElement {
 
     /**
-     * Return Virtual System id
-     *
-     * @return Long unique identifier of the virtual system
+     * 
+     * @return
+     *         Long unique identifier of the virtual system
      */
     public Long getId();
 
     /**
-     * Return Virtual System generated name
-     *
-     * @return Unique string name of the virtual system
+     * 
+     * @return
+     *         Unique Virtual System generated name
      */
     public String getName();
 
     /**
-     * Return manager identifier created for this virtual system
-     *
-     * @return String identifier created by manager
+     * @return
+     *         String manager identifier created for this virtual system
      */
     public String getMgrId();
 
     /**
-     * Return the owning distributed appliance for this virtual system
-     *
-     * @return Distributed Appliance interface object
+     * @return
+     *         Distributed Appliance interface object for this virtual system. {@link DistributedApplianceElement}
      */
     public DistributedApplianceElement getDistributedAppliance();
 
     /**
-     * Return Virtualization Connector used by this virtual system
-     *
-     * @return Virtualization Connector interface object
+     * 
+     * @return
+     *         Virtualization Connector interface object used by this virtual system
+     *         {@link VirtualizationConnectorElement}
      */
     public VirtualizationConnectorElement getVirtualizationConnector();
 
     /**
-     * Get the appliance software version deployed by this virtual system
-     *
-     * @return Appliance Software Version interface object
+     * 
+     * @return
+     *         Appliance Software Version interface object deployed by this virtual system.
+     *         {@link ApplianceSoftwareVersionElement}
      */
     public ApplianceSoftwareVersionElement getApplianceSoftwareVersion();
 
     /**
-     * Return domain to which this virtual system was created in
-     *
-     * @return Domain interface object
+     * 
+     * @return
+     *         Domain interface object which this virtual system was created for. {@link DomainElement}
      */
     public DomainElement getDomain();
 
     /**
-     * Return the public/private keystore generated for this virtual system container.
-     *
-     * @return Opaque array of bytes representing keystore.
+     * 
+     * @return
+     *         Opaque array of bytes representing keystore generated for this virtual system container.
      */
     public byte[] getKeyStore();
 

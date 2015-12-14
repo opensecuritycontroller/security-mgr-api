@@ -1,11 +1,15 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Domain"
+ */
+
 public interface DomainElement {
 
     /**
-     * Return the Manager Domain identifier
-     *
-     * @return String representing the domain identifier
+     * 
+     * @return
+     *         String representing Manager Domain identity
      */
     public String getMgrId();
 

@@ -1,13 +1,20 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Distributed Appliance Instance"
+ */
+
 public interface DistributedApplianceInstanceElement {
 
+    /**
+     * @return
+     *         Opaque byte array of appliance configuration.
+     */
     public byte[] getApplianceConfig();
 
     /**
-     * Return owning Virtual System of this Distributed Appliance Instance
-     *
-     * @return Virtual System interface object
+     * @return
+     *         Virtual System of this Distributed Appliance Instance. {@link VirtualSystemElement}
      */
     public VirtualSystemElement getVirtualSystem();
 

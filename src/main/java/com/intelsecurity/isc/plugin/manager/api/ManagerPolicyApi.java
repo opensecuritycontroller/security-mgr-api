@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.intelsecurity.isc.plugin.manager.element.ManagerPolicyElement;
 
+/**
+ * This documents "Manager Policy Apis"
+ */
 public interface ManagerPolicyApi {
 
     /**
@@ -11,7 +14,7 @@ public interface ManagerPolicyApi {
      * 
      * @param id
      *            The policy id.
-     * @return The policy element
+     * @return The policy element. {@link ManagerPolicyElement}
      * @throws Exception
      */
     public abstract ManagerPolicyElement getPolicy(String id, String domainId) throws Exception;

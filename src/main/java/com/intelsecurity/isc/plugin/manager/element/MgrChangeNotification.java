@@ -1,21 +1,26 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This provides functionality needed to support Manager element change Notifications.
+ */
 public class MgrChangeNotification {
-
+    /**
+     * This documents "Manager Object Types"
+     */
     public enum MgrObjectType {
-        POLICY,
-        DOMAIN
+        POLICY, DOMAIN
     }
 
+    /**
+     * This documents "Object State Change"
+     */
     public enum ChangeType {
-        ADDED,
-        UPDATED,
-        DELETED
+        ADDED, UPDATED, DELETED
     }
 
-    private ChangeType changeType;
-    private MgrObjectType objectType;
-    private String objectId;
+    private final ChangeType changeType;
+    private final MgrObjectType objectType;
+    private final String objectId;
 
     public MgrChangeNotification(ChangeType changeType, MgrObjectType objectType, String objectId) {
         this.changeType = changeType;
@@ -23,14 +28,26 @@ public class MgrChangeNotification {
         this.objectId = objectId;
     }
 
+    /**
+     * @return
+     *         Type of change Notification Registered. {@link ChangeType}
+     */
     public ChangeType getChangeType() {
         return changeType;
     }
 
+    /**
+     * @return
+     *         Type of Object which is in context of this change Notification. {@link MgrObjectType}
+     */
     public MgrObjectType getObjectType() {
         return objectType;
     }
 
+    /**
+     * @return
+     *         Object Id as a String
+     */
     public String getObjectId() {
         return objectId;
     }

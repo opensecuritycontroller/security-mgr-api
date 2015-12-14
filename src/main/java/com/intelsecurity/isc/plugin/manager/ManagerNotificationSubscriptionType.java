@@ -1,8 +1,10 @@
 package com.intelsecurity.isc.plugin.manager;
 
+/**
+ * This documents "Subscription Types" for sending notifications to ISC
+ */
 public enum ManagerNotificationSubscriptionType {
-    TRANSIENT_WEB_SOCKET("TRANSIENT_WEB_SOCKET"),
-    PERSISTED_URL("PERSISTED_URL");
+    TRANSIENT_WEB_SOCKET("TRANSIENT_WEB_SOCKET"), CALLBACK_URL("CALLBACK_URL");
 
     private final String text;
 

@@ -1,10 +1,14 @@
 package com.intelsecurity.isc.plugin.manager.element;
 
+/**
+ * This documents "Appliance Definition"
+ */
 public interface ApplianceElement {
 
     /**
-     * Return model of appliance
-     * @return model name
+     * 
+     * @return
+     *         Appliance Model
      */
     public String getModel();
 
