@@ -80,6 +80,11 @@ public interface ApplianceManagerApi {
     public abstract String getName();
 
     /**
+     * @return Vendor Name e.g. "Intel Security"
+     */
+    public abstract String getVendorName();
+
+    /**
      * @return Manager Plugin Version e.g. "1.0"
      */
     public abstract String getVersion();
