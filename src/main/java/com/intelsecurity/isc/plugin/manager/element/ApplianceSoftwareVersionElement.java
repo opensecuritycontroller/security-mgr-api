@@ -10,11 +10,11 @@ public interface ApplianceSoftwareVersionElement {
      * @return
      *         Appliance Software Version String
      */
-    public String getApplianceSoftwareVersion();
+    String getApplianceSoftwareVersion();
 
     /**
      * @return
      *         Model of this appliance
      */
-    public String getApplianceModel();
+    String getApplianceModel();
 }

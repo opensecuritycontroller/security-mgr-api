@@ -9,6 +9,8 @@ import com.intelsecurity.isc.plugin.manager.element.TaskElement;
  * This documents Job, Task completion Notifications to Appliance Manager from ISC.
  * ISC will only notify those Jobs, task which were triggered in ISC on behalf of given Manager Connector.
  * e.g. "Propagating Policy or Configuration File to the Appliances"
+ *
+ * This API is optional and needs to be implemented if the manager wants to be notified of job events from ISC.
  */
 public interface IscJobNotificationApi extends AutoCloseable {
 
@@ -29,5 +31,5 @@ public interface IscJobNotificationApi extends AutoCloseable {
     void reportJobTaskEvent(TaskElement taskNode, HashMap<String, String> objects) throws Exception;
 
     @Override
-    public abstract void close();
+    void close();
 }

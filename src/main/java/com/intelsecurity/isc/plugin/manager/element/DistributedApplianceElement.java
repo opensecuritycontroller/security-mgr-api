@@ -7,32 +7,33 @@ package com.intelsecurity.isc.plugin.manager.element;
 public interface DistributedApplianceElement {
 
     /**
-     * 
+     *
      * @return
-     *         Appliance Manager Connector interface object used by the Distributed Appliance
+     *         Appliance Manager Connector interface object used by the Distributed Appliance.
+     *         The RESTful BASIC_AUTH password is <b>NOT</b> in the clear on this instance.
      *         {@link ApplianceManagerConnectorElement}
      */
-    public ApplianceManagerConnectorElement getApplianceManagerConnector();
+    ApplianceManagerConnectorElement getApplianceManagerConnector();
 
     /**
-     * 
+     *
      * @return
      *         Appliance interface object used by the Distributed Appliance. {@link ApplianceElement}
      */
-    public ApplianceElement getAppliance();
+    ApplianceElement getAppliance();
 
     /**
-     * 
+     *
      * @return
      *         String representing the Appliance Software Version used by the Distributed Appliance
      */
-    public String getApplianceVersion();
+    String getApplianceVersion();
 
     /**
      * Not used.
-     * 
+     *
      * @return
      */
-    public String getMgrSecretKey();
+    String getMgrSecretKey();
 
 }

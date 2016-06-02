@@ -9,35 +9,35 @@ public interface TaskElement {
      * @return
      *         Task Id
      */
-    public Long getId();
+    Long getId();
 
     /**
      * @return
      */
-    public JobElement getJob();
+    JobElement getJob();
 
     /**
      * @return
      *         Job Id. {@link JobElement}
      */
-    public TaskStateElement getState();
+    TaskStateElement getState();
 
     /**
      * @return
      *         Task's current Status. {@link TaskStatusElement}
      */
-    public TaskStatusElement getStatus();
+    TaskStatusElement getStatus();
 
     /**
      * @return
      *         Task Name
      */
-    public String getName();
+    String getName();
 
     /**
      * @return
      *         Reason explaining why this Task Failed.
      */
-    public Throwable getFailReason();
+    Throwable getFailReason();
 
 }

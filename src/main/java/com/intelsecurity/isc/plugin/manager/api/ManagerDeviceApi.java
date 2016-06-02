@@ -2,11 +2,10 @@ package com.intelsecurity.isc.plugin.manager.api;
 
 import java.util.List;
 
+import com.intelsecurity.isc.plugin.manager.element.ApplianceBootStrapElement;
 import com.intelsecurity.isc.plugin.manager.element.DistributedApplianceInstanceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceMemberElement;
-import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupElement;
-import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfaceElement;
 
 /**
  * This documents "Device Management Apis"
@@ -14,64 +13,70 @@ import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfac
 public interface ManagerDeviceApi extends AutoCloseable {
 
     /**
+     * Returns True if Device Group(VSS) is supported.
+     * @return
+     */
+    boolean isDeviceGroupSupported();
+
+    /**
      * Find device given device id
-     * 
+     *
      * @param id
      *            The device unique id
      * @return
      *         The device element found. Null if not found. {@link ManagerDeviceElement}
      * @throws Exception
      */
-    public abstract ManagerDeviceElement getDeviceById(String id) throws Exception;
+    ManagerDeviceElement getDeviceById(String id) throws Exception;
 
     /**
      * Find device by name
-     * 
+     *
      * @param name
      *            of the device to locate
      * @return
      *         The device element unique id (String) or null if not found.
      * @throws Exception
      */
-    public abstract String findDeviceByName(String name) throws Exception;
+    String findDeviceByName(String name) throws Exception;
 
     /**
      * Enumerate all device elements
-     * 
+     *
      * @return
      *         List of device elements List<{@link ManagerDeviceElement}>
      * @throws Exception
      */
-    public abstract List<? extends ManagerDeviceElement> listDevices() throws Exception;
+    List<? extends ManagerDeviceElement> listDevices() throws Exception;
 
     /**
      * Create Device Container for current Virtual System
-     * 
+     *
      * @return
      *         The id (String) of the device container which was created.
      * @throws Exception
      */
-    public abstract String createVSSDevice() throws Exception;
+    String createVSSDevice() throws Exception;
 
     /**
      * Update Device Container for current VS
-     * 
+     *
      * @param device
      *            {@link ManagerDeviceElement}
      * @throws Exception
      */
-    public void updateVSSDevice(ManagerDeviceElement device) throws Exception;
+    void updateVSSDevice(ManagerDeviceElement device) throws Exception;
 
     /**
      * Delete device container. The id is taken from VS
-     * 
+     *
      * @throws Exception
      */
-    public abstract void deleteVSSDevice() throws Exception;
+    void deleteVSSDevice() throws Exception;
 
     /**
      * Create a member device in context of current VS device container
-     * 
+     *
      * @param name
      *            A unique name for member device
      * @param vserverIpAddress
@@ -88,7 +93,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
      *         the unique identifier (String) of the member device
      * @throws Exception
      */
-    public abstract String createDeviceMember(String name, String vserverIpAddress, String contactIpAddress,
+    String createDeviceMember(String name, String vserverIpAddress, String contactIpAddress,
             String ipAddress, String gateway, String prefixLength) throws Exception;
 
     /**
@@ -108,124 +113,56 @@ public interface ManagerDeviceApi extends AutoCloseable {
      *            Prefix Length
      * @return
      *         updated device member id (String) or the same device member id if nothing to update.
-     * 
+     *
      * @throws Exception
      */
-    public abstract String updateDeviceMember(ManagerDeviceMemberElement deviceElement, String name,
+    String updateDeviceMember(ManagerDeviceMemberElement deviceElement, String name,
             String deviceHostName, String ipAddress, String mgmtIPAddress, String gateway, String prefixLength)
             throws Exception;
 
     /**
      * Delete member device given member device id from current VS device container
-     * 
+     *
      * @param id
      *            The member device id to delete
      * @throws Exception
      */
-    public abstract void deleteDeviceMember(String id) throws Exception;
+    void deleteDeviceMember(String id) throws Exception;
 
     /**
      * Find member device using id from current VS device container
-     * 
+     *
      * @param id
      *            The member device id to locate
      * @return The member device element
      * @throws Exception
      */
-    public abstract ManagerDeviceMemberElement getDeviceMemberById(String id) throws Exception;
+    ManagerDeviceMemberElement getDeviceMemberById(String id) throws Exception;
 
     /**
      * Locate member device by name within the members of current VS device container
-     * 
+     *
      * @param name
      *            The member device name to locate
      * @return
      *         The member device id. Null if not found. {@link ManagerDeviceMemberElement}
      * @throws Exception
      */
-    public abstract ManagerDeviceMemberElement findDeviceMemberByName(String name) throws Exception;
+    ManagerDeviceMemberElement findDeviceMemberByName(String name) throws Exception;
 
     /**
      * Return the list of all member device elements for current VS device container
-     * 
+     *
      * @return
      *         The list of device member elements. List<{@link ManagerDeviceMemberElement}>
      * @throws Exception
      */
-    public abstract List<? extends ManagerDeviceMemberElement> listDeviceMembers() throws Exception;
-
-    /**
-     * Create security group interface within context of VS device container
-     * 
-     * @param securityGroup
-     * @return
-     *         Security Group Interface Id (String) is successfully created
-     * 
-     * @throws Exception
-     */
-    public abstract String createSecurityGroupInterface(String name, String policyId, String tag) throws Exception;
-
-    /**
-     * @param id
-     *            The security group id to update
-     * @param name
-     *            Security Group name
-     * @param policyId
-     *            Policy Id associated with this Security Group Interface
-     * @param tag
-     *            Policy Tag binded with this Security Group Interface
-     * @throws Exception
-     */
-    public abstract void updateSecurityGroupInterface(String id, String name, String policyId, String tag)
-            throws Exception;
-
-    /**
-     * Delete security group interface within context of VS device container
-     * 
-     * @param id
-     *            The id of the security group interface to delete
-     * @throws Exception
-     */
-    public abstract void deleteSecurityGroupInterface(String id) throws Exception;
-
-    /**
-     * Find security group by id within the context of VS device container and and return security group element
-     * 
-     * @param id
-     *            The security group id to locate
-     * @return
-     *         The security group element found. Null if not found. {@link ManagerSecurityGroupInterfaceElement}
-     * @throws Exception
-     */
-    public abstract ManagerSecurityGroupInterfaceElement getSecurityGroupInterfaceById(String id) throws Exception;
-
-    /**
-     * Locate Security group by name with in the context of VS device container and return unique id if found.
-     * 
-     * @param name
-     *            The security group name to locate.
-     * @return
-     *         The security group id (String).
-     * @throws Exception
-     */
-    public abstract String findSecurityGroupInterfaceByName(String name) throws Exception;
-
-    /**
-     * Get list of all security group interfaces within the context of the VS device container.
-     * 
-     * @return
-     *         The security group element list. List<{@link ManagerSecurityGroupInterfaceElement}>
-     * @throws Exception
-     */
-    public abstract List<? extends ManagerSecurityGroupInterfaceElement> listSecurityGroupInterfaces() throws Exception;
-
-    @Override
-    public abstract void close();
+    List<? extends ManagerDeviceMemberElement> listDeviceMembers() throws Exception;
 
     /**
      * Check if a appliance upgrade from version represented by srcSwVersion van be upgraded to another version
      * represented by destSwVersion.
-     * 
+     *
      * @param modelType
      *            The appliance model for which version upgrade is being checked.
      * @param prevSwVersion
@@ -236,25 +173,25 @@ public interface ManagerDeviceApi extends AutoCloseable {
      *         true if upgrade is supported.
      * @throws Exception
      */
-    public abstract boolean isUpgradeSupported(String modelType, String prevSwVersion, String newSwVersion)
+    boolean isUpgradeSupported(String modelType, String prevSwVersion, String newSwVersion)
             throws Exception;
 
     /**
      * Get individual member device configuration from Manager to be persisted in ISC. Returned blob will be downloaded
      * to appliance during registration and passed on to manager authentication script.
-     * 
+     *
      * @param mgrDeviceId
      *            The member device id for which configuration is to be retrieved.
      * @return
      *         Opaque byte array representing member device configuration.
      * @throws Exception
      */
-    public abstract byte[] getDeviceMemberConfigById(String mgrDeviceId) throws Exception;
+    byte[] getDeviceMemberConfigById(String mgrDeviceId) throws Exception;
 
     /**
      * This method is used to provide device specific configuration to ISC.
      * Return Member Device Configuration stored in ISC to be downloaded to device member.
-     * 
+     *
      * @param Distributed
      *            Appliance Instance interface object from which stored configuration will be retrieved.
      *            {@link DistributedApplianceInstanceElement}
@@ -262,66 +199,37 @@ public interface ManagerDeviceApi extends AutoCloseable {
      *         Opaque byte array representing member device configuration. This configuration is generated by Manager
      *         and is persisted in ISC
      */
-    public abstract byte[] getDeviceMemberConfiguration(DistributedApplianceInstanceElement dai);
+    byte[] getDeviceMemberConfiguration(DistributedApplianceInstanceElement dai);
 
     /**
      * Return Member Device Configuration stored in ISC to be download to device member. This method is used to send
      * additional information which is not being provided by getDeviceMemberConfiguration()
-     * 
+     *
      * @param Distributed
      *            Appliance Instance interface object from which stored configuration will be retrieved.
      *            {@link DistributedApplianceInstanceElement}
      * @return Opaque byte array representing member device configuration
      */
-    public abstract byte[] getDeviceMemberAdditionalConfiguration(DistributedApplianceInstanceElement dai);
+    byte[] getDeviceMemberAdditionalConfiguration(DistributedApplianceInstanceElement dai);
 
     /**
-     * Create an security group
-     * 
-     * @param name
-     *            Name of the security group
-     * @param iscId
-     *            Unique Identifier (String) representing ISC which is responsible for this Security Group
-     * 
-     * @return
-     *         The Manager Id for the newly created Security Group object
+     * Returns the Base64 encoded String representation of the data. The implementor is free to add any other extra
+     * data to the bootstrap information based on what the appliance needs.<br/>
+     * <br/>
+     *
+     * For Openstack, the content will be available as a config drive under /MOUNT_POINT/openstack/content/0000
+     *
+     * <p>
+     * This is useful, for example, for inserting ssh keys, setting configuration files, or storing data that you
+     * want to retrieve from within the instance itself. It is intended to provide a minimal amount of launch-time
+     * personalization. The max size of the file contents is 10KB.
+     * Note that the file contents should be encoded as a Base64 string and the 10KB limit refers to the
+     * number of bytes in the decoded data not the number of characters in the encoded data.
+     * </p>
+     *
      */
-    public abstract String createSecurityGroup(String name, String iscId) throws Exception;
+    byte[] getBootstrapinfo(ApplianceBootStrapElement bootStrapInfo);
 
-    /**
-     * Update an Security Group object
-     * 
-     * @param sgId
-     *            The Security Group object id
-     * @param name
-     *            The updated name of the Security Group object
-     */
-    public abstract void updateSecurityGroup(String sgId, String name) throws Exception;
-
-    /**
-     * Delete an Security Group object
-     * 
-     * @param sgId
-     *            The Security Group object id
-     * @throws Exception
-     */
-    public abstract void deleteSecurityGroup(String sgId) throws Exception;
-
-    /**
-     * List all security groups
-     * 
-     * @return
-     *         List of security groups. List<{@link ManagerSecurityGroupElement}>
-     */
-    public abstract List<? extends ManagerSecurityGroupElement> getSecurityGroupList() throws Exception;
-
-    /**
-     * @param sgId
-     *            The Security Group object id
-     * @return
-     *         Security Group Object {@link ManagerSecurityGroupElement}
-     * @throws Exception
-     */
-    public abstract ManagerSecurityGroupElement getSecurityGroupById(String sgId) throws Exception;
-
+    @Override
+    void close();
 }

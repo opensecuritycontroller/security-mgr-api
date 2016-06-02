@@ -8,42 +8,42 @@ public interface ManagerNotificationRegistrationElement {
      * @return
      *         Management IP Address of ISC
      */
-    public String getIpAddress();
+    String getIpAddress();
 
     /**
      * @return
      *         ISC Port number
      */
-    public Integer getPort();
+    Integer getPort();
 
     /**
      * @return
      *         User name which will be used for authenticate with ISC
      */
-    public String getUsername();
+    String getUsername();
 
     /**
      * @return
      *         User password which will be used to authenticate with ISC
      */
-    public String getPassword();
+    String getPassword();
 
     /**
      * @return
      *         URL to be used when notifying to ISC
      */
-    public String getRelativeURL();
+    String getRelativeURL();
 
     /**
      * @return
      *         Previously Known IP Address of ISC
      */
-    public String getOldIpAddress();
+    String getOldIpAddress();
 
     /**
      * @return
      *         True if already registered, False otherwise
-     * 
+     *
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 }

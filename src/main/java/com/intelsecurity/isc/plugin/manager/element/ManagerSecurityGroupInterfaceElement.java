@@ -8,23 +8,23 @@ public interface ManagerSecurityGroupInterfaceElement {
      * @return
      *         Security Group Interface Id in Manager Connector
      */
-    public String getSecurityGroupInterfaceId();
+    String getSecurityGroupInterfaceId();
 
     /**
      * @return
      *         Security Group Interface Name
      */
-    public String getName();
+    String getName();
 
     /**
      * @return
      *         Policy ID
      */
-    public String getPolicyId();
+    String getPolicyId();
 
     /**
      * @return
      *         Policy Tag
      */
-    public String getTag();
+    String getTag();
 }

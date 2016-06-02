@@ -8,11 +8,11 @@ public interface ManagerSecurityGroupElement {
      * @return
      *         Security Group Id in Manager Connector
      */
-    public String getSGId();
+    String getSGId();
 
     /**
      * @return
      *         Security Group Name in Manager
      */
-    public String getName();
+    String getName();
 }

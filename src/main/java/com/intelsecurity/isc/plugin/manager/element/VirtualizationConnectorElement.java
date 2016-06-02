@@ -6,10 +6,10 @@ package com.intelsecurity.isc.plugin.manager.element;
 public interface VirtualizationConnectorElement {
 
     /**
-     * 
+     *
      * @return
      *         Virtualization Connector name
      */
-    public String getName();
+    String getName();
 
 }

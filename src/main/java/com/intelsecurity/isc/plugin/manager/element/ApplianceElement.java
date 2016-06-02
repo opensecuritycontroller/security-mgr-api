@@ -6,10 +6,10 @@ package com.intelsecurity.isc.plugin.manager.element;
 public interface ApplianceElement {
 
     /**
-     * 
+     *
      * @return
      *         Appliance Model
      */
-    public String getModel();
+    String getModel();
 
 }

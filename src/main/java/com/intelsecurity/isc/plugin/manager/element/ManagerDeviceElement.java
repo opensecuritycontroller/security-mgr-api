@@ -8,11 +8,11 @@ public interface ManagerDeviceElement {
      * @return
      *         Unique ID of this device in String format
      */
-    public String getId();
+    String getId();
 
     /**
      * @return
      *         Device Name
      */
-    public String getName();
+    String getName();
 }

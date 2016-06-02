@@ -9,18 +9,18 @@ public interface JobElement {
      * @return
      *         Long Job unique Identifier
      */
-    public Long getId();
+    Long getId();
 
     /**
      * @return
      *         Job's State {@link JobStateElement}
      */
-    public JobStateElement getState();
+    JobStateElement getState();
 
     /**
      * @return
      *         Job's Status. {@link JobStatusElement}
      */
-    public JobStatusElement getStatus();
+    JobStatusElement getStatus();
 
 }
