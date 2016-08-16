@@ -29,7 +29,7 @@ public interface ApplianceManagerApi {
      *            the manager connector element.
      * @param vs
      *            Virtual System Element {@link VirtualSystemElement}.
-     * @return ManagerSecurityGroupInterfaceApi Api
+     * @return ManagerSecurityGroupInterfaceApi Api. It can return null if {@code #isPolicyMappingSupported()} returns false.
      * @throws Exception
      */
     ManagerSecurityGroupInterfaceApi createManagerSecurityGroupInterfaceApi(ApplianceManagerConnectorElement mc,
@@ -40,7 +40,6 @@ public interface ApplianceManagerApi {
      *            the manager connector element.
      * @param vs
      *            Virtual System Element {@link VirtualSystemElement}.
-     * @return ManagerSecurityGroupApi Api
      * @throws Exception
      */
     ManagerSecurityGroupApi createManagerSecurityGroupApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs)
@@ -57,7 +56,7 @@ public interface ApplianceManagerApi {
     /**
      * @param mc
      *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Domain Api
+     * @return Domain Api. It can be null if {@code #isPolicyMappingSupported()} returns false.
      * @throws Exception
      */
     ManagerDomainApi createManagerDomainApi(ApplianceManagerConnectorElement mc) throws Exception;
@@ -163,6 +162,12 @@ public interface ApplianceManagerApi {
      *
      */
     boolean isAgentManaged();
+
+    /**
+     * Returns True if the appliance manager supports policy mapping. False otherwise.
+     * The value returned by this method should not change at runtime.
+     */
+    boolean isPolicyMappingSupported();
 
     // TODO: Future For non-agent managed, create API's to retrive status(es) by id
 }

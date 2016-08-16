@@ -5,7 +5,8 @@ import java.util.List;
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupInterfaceElement;
 
 /**
- * This documents "Manager Security Group Interface Apis" (Security Group -> Policy mapping)
+ * This documents "Manager Security Group Interface Apis" (Security Group -> Policy mapping).
+ * This API is optional and needs to be implemented if {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
  */
 public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
 

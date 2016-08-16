@@ -5,7 +5,8 @@ import java.util.List;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDomainElement;
 
 /**
- * This documents "Manager Domain Apis"
+ * This documents "Manager Domain Apis". This API is optional and needs to be implemented if
+ * {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
  */
 
 public interface ManagerDomainApi {
