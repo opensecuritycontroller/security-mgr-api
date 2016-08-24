@@ -3,6 +3,7 @@ package com.intelsecurity.isc.plugin.manager.api;
 import java.util.List;
 
 import com.intelsecurity.isc.plugin.manager.element.ManagerSecurityGroupElement;
+import com.intelsecurity.isc.plugin.manager.element.SecurityGroupMemberListElement;
 
 /**
  * This documents "Manager Security Group Apis". This API is optional and needs to be implemented if
@@ -17,11 +18,13 @@ public interface ManagerSecurityGroupApi extends AutoCloseable {
      *            Name of the security group
      * @param iscId
      *            Unique Identifier (String) representing ISC which is responsible for this Security Group
+     * @param memberList
+     *            The members within the security group
      *
      * @return
      *         The Manager Id for the newly created Security Group object
      */
-    String createSecurityGroup(String name, String iscId) throws Exception;
+    String createSecurityGroup(String name, String iscId, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Update an Security Group object
@@ -30,8 +33,10 @@ public interface ManagerSecurityGroupApi extends AutoCloseable {
      *            The Security Group object id
      * @param name
      *            The updated name of the Security Group object
+     * @param memberList
+     *            The members within the security group
      */
-    void updateSecurityGroup(String sgId, String name) throws Exception;
+    void updateSecurityGroup(String sgId, String name, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Delete an Security Group object
