@@ -2,8 +2,9 @@ package com.intelsecurity.isc.plugin.manager.api;
 
 import java.util.List;
 
-import com.intelsecurity.isc.plugin.manager.element.ApplianceBootStrapElement;
+import com.intelsecurity.isc.plugin.manager.element.BootStrapInfoProviderElement;
 import com.intelsecurity.isc.plugin.manager.element.DistributedApplianceInstanceElement;
+import com.intelsecurity.isc.plugin.manager.element.ApplianceBootstrapInformationElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceElement;
 import com.intelsecurity.isc.plugin.manager.element.ManagerDeviceMemberElement;
 
@@ -213,7 +214,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
     byte[] getDeviceMemberAdditionalConfiguration(DistributedApplianceInstanceElement dai);
 
     /**
-     * Returns the Base64 encoded String representation of the data. The implementor is free to add any other extra
+     * Returns the bootstrap information. The implementor is free to add any other extra
      * data to the bootstrap information based on what the appliance needs.<br/>
      * <br/>
      *
@@ -222,13 +223,11 @@ public interface ManagerDeviceApi extends AutoCloseable {
      * <p>
      * This is useful, for example, for inserting ssh keys, setting configuration files, or storing data that you
      * want to retrieve from within the instance itself. It is intended to provide a minimal amount of launch-time
-     * personalization. The max size of the file contents is 10KB.
-     * Note that the file contents should be encoded as a Base64 string and the 10KB limit refers to the
-     * number of bytes in the decoded data not the number of characters in the encoded data.
+     * personalization.
      * </p>
      *
      */
-    byte[] getBootstrapinfo(ApplianceBootStrapElement bootStrapInfo);
+    ApplianceBootstrapInformationElement getBootstrapinfo(BootStrapInfoProviderElement bootStrapInfo);
 
     @Override
     void close();

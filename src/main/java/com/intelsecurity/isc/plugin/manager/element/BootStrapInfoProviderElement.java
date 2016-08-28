@@ -5,13 +5,7 @@ import java.util.Map;
 /**
  * This documents "Appliance Bootstrap definition"
  */
-public interface ApplianceBootStrapElement {
-
-    String getManagerIp();
-
-    String getManagerUsername();
-
-    String getManagerPassword();
+public interface BootStrapInfoProviderElement {
 
     String getName();
 
