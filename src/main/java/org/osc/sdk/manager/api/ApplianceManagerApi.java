@@ -62,6 +62,14 @@ public interface ApplianceManagerApi {
     ManagerDomainApi createManagerDomainApi(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
+     * @param mc
+     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
+     * @return Agent Api. It can be null if {@code #isAgentSupported()} returns false.
+     * @throws Exception
+     */
+    ManagerDeviceMemberApi createManagerDeviceMemberApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs) throws Exception;
+
+    /**
      *
      * Implementation of this method is required if Manager uses Web Socket Subscription Type for Notifications
      *

@@ -5,6 +5,18 @@ package org.osc.sdk.manager.element;
  */
 
 public interface DistributedApplianceInstanceElement {
+    /**
+     * @return
+     * return instance element id
+     */
+    public Long getId();
+
+    /**
+     * @return
+     * return name of the distributed appliance instance element
+     */
+
+    public String getName();
 
     /**
      * @return
