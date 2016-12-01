@@ -65,11 +65,18 @@ public interface ApplianceManagerConnectorElement {
     String getLastKnownNotificationIpAddress();
 
     /**
-     * In cases where appliance needs to get the Manager key, this return key stored in ISC
+     * In cases where appliance needs to get the Manager key, this return key stored in OSC
      *
      * @return
      *         Opaque array of bytes representing the key.
      */
     byte[] getPublicKey();
 
+    /**
+     * Provides the IP address of the client application (OSC) hosting the plugin.
+     *
+     * @return
+     *         The IP address of the application (OSC) hosting the plugin.
+     */
+    String getClientIpAddress();
 }
