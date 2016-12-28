@@ -1,8 +1,11 @@
 package org.osc.sdk.manager.element;
 
+import org.osgi.annotation.versioning.ConsumerType;
+
 /**
  * This documents "Manager Notification Registration"
  */
+@ConsumerType
 public interface ManagerNotificationRegistrationElement {
     /**
      * @return

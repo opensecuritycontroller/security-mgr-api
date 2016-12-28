@@ -4,11 +4,13 @@ import org.osc.sdk.manager.ManagerAuthenticationType;
 import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
 import org.osc.sdk.manager.element.ApplianceManagerConnectorElement;
 import org.osc.sdk.manager.element.VirtualSystemElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Manager Apis" used by ISC to communicate with registered Managers. The virtual system element ->
  * Distributed appliance Element -> Manager connector Element does NOT contain the plain Password.
  */
+@ConsumerType
 public interface ApplianceManagerApi {
 
     //TODO:Future add typed exceptions...

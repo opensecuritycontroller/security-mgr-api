@@ -1,9 +1,10 @@
 package org.osc.sdk.manager.element;
 
+import org.osgi.annotation.versioning.ConsumerType;
 /**
  * This documents "Distributed Appliance"
  */
-
+@ConsumerType
 public interface DistributedApplianceElement {
 
     /**

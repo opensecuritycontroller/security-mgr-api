@@ -1,8 +1,11 @@
 package org.osc.sdk.manager.element;
 
+import org.osgi.annotation.versioning.ConsumerType;
+
 /**
  * This documents "Manager Security Group"
  */
+@ConsumerType
 public interface ManagerSecurityGroupElement {
     /**
      * @return

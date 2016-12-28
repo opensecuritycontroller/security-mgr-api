@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.osc.sdk.manager.element.JobElement;
 import org.osc.sdk.manager.element.TaskElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents Job, Task completion Notifications to Appliance Manager from ISC.
@@ -12,6 +13,7 @@ import org.osc.sdk.manager.element.TaskElement;
  *
  * This API is optional and needs to be implemented if the manager wants to be notified of job events from ISC.
  */
+@ConsumerType
 public interface IscJobNotificationApi extends AutoCloseable {
 
     /**

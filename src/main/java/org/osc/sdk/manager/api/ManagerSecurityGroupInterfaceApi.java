@@ -3,11 +3,13 @@ package org.osc.sdk.manager.api;
 import java.util.List;
 
 import org.osc.sdk.manager.element.ManagerSecurityGroupInterfaceElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Manager Security Group Interface Apis" (Security Group -> Policy mapping).
  * This API is optional and needs to be implemented if {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
  */
+@ConsumerType
 public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
 
     /**

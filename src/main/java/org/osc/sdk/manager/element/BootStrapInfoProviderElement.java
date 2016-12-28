@@ -2,9 +2,12 @@ package org.osc.sdk.manager.element;
 
 import java.util.Map;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 /**
  * This documents "Appliance Bootstrap definition"
  */
+@ProviderType
 public interface BootStrapInfoProviderElement {
 
     String getName();

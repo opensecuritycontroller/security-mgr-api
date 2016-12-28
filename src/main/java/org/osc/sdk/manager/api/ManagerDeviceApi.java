@@ -7,10 +7,12 @@ import org.osc.sdk.manager.element.BootStrapInfoProviderElement;
 import org.osc.sdk.manager.element.DistributedApplianceInstanceElement;
 import org.osc.sdk.manager.element.ManagerDeviceElement;
 import org.osc.sdk.manager.element.ManagerDeviceMemberElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Device Management Apis"
  */
+@ConsumerType
 public interface ManagerDeviceApi extends AutoCloseable {
 
     /**

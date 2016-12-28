@@ -1,8 +1,11 @@
 package org.osc.sdk.manager.element;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 /**
  * This documents "Job"
  */
+@ProviderType
 public interface JobElement {
 
     /**

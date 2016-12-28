@@ -2,9 +2,12 @@ package org.osc.sdk.manager.element;
 
 import java.util.List;
 
+import org.osgi.annotation.versioning.ProviderType;
+
 /**
  * Describes the member within a security group
  */
+@ProviderType
 public interface SecurityGroupMemberElement {
 
     /**

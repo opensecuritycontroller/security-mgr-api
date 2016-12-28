@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.websocket.Session;
 
 import org.osc.sdk.manager.element.MgrChangeNotification;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Web Socket Notification Apis"
@@ -15,6 +16,7 @@ import org.osc.sdk.manager.element.MgrChangeNotification;
  * {@code ApplianceManagerApi#getNotificationType()} returns TRANSIENT_WEB_SOCKET.
  *
  */
+@ConsumerType
 public interface ManagerWebSocketNotificationApi extends AutoCloseable {
 
     /**

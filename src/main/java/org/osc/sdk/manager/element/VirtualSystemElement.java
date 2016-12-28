@@ -1,8 +1,10 @@
 package org.osc.sdk.manager.element;
 
+import org.osgi.annotation.versioning.ConsumerType;
 /**
  * This documents "Virtual System"
  */
+@ConsumerType
 public interface VirtualSystemElement {
 
     /**

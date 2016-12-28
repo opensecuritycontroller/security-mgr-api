@@ -1,6 +1,7 @@
 package org.osc.sdk.manager.api;
 
 import org.osc.sdk.manager.element.ManagerNotificationRegistrationElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Manager Callback Notification Apis".
@@ -9,6 +10,7 @@ import org.osc.sdk.manager.element.ManagerNotificationRegistrationElement;
  * This API is optional and needs to be implemented if
  * {@code ApplianceManagerApi#getNotificationType()} returns CALLBACK_URL.
  */
+@ConsumerType
 public interface ManagerCallbackNotificationApi extends AutoCloseable {
 
     /**

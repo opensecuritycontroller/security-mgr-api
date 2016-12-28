@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.osc.sdk.manager.element.ManagerSecurityGroupElement;
 import org.osc.sdk.manager.element.SecurityGroupMemberListElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Manager Security Group Apis". This API is optional and needs to be implemented if
  * {@code ApplianceManagerApi#isSecurityGroupSyncSupport()} returns true.
  */
+@ConsumerType
 public interface ManagerSecurityGroupApi extends AutoCloseable {
 
     /**

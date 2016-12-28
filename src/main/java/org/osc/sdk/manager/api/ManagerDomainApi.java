@@ -3,12 +3,13 @@ package org.osc.sdk.manager.api;
 import java.util.List;
 
 import org.osc.sdk.manager.element.ManagerDomainElement;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * This documents "Manager Domain Apis". This API is optional and needs to be implemented if
  * {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
  */
-
+@ConsumerType
 public interface ManagerDomainApi {
 
     /**
