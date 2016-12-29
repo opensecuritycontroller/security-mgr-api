@@ -10,7 +10,7 @@ import org.osgi.annotation.versioning.ConsumerType;
 @ConsumerType
 public interface ManagerDeviceMemberStatusElement {
     String getVersion();
-    Long getRx() ;     // Received packets to security function appliance
+    Long getRx();     // Received packets to security function appliance
     Long getTxSva();   // Packet sent out as instructed by security function appliance
     Long getDropSva(); // Dropped as instructed by security function appliance
     Date getCurrentServerTime();

@@ -10,12 +10,12 @@ public enum ManagerAuthenticationType {
 
     private final String text;
 
-    private ManagerAuthenticationType(final String text) {
+    ManagerAuthenticationType(final String text) {
         this.text = text;
     }
 
     @Override
     public String toString() {
-        return text;
+        return this.text;
     }
 }

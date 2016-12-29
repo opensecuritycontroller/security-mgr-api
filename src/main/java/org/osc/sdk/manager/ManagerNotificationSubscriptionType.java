@@ -8,7 +8,7 @@ public enum ManagerNotificationSubscriptionType {
 
     private final String text;
 
-    private ManagerNotificationSubscriptionType(final String text) {
+    ManagerNotificationSubscriptionType(final String text) {
         this.text = text;
     }
 
