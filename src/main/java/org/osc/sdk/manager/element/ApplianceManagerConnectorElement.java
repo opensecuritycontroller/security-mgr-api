@@ -2,6 +2,9 @@ package org.osc.sdk.manager.element;
 
 import org.osgi.annotation.versioning.ConsumerType;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+
 /**
  * This documents "Manager Connector"
  */
@@ -81,4 +84,18 @@ public interface ApplianceManagerConnectorElement {
      *         The IP address of the application (OSC) hosting the plugin.
      */
     String getClientIpAddress();
+
+    /**
+     * Provides the SSL context of the client application (OSC) hosting the plugin
+     * @return
+     *          The SSLContext of the application (OSC) hosting the plugin
+     */
+    SSLContext getSslContext();
+
+    /**
+     * Provides the Truststore manager array of the client application (OSC) hosting the plugin
+     * @return
+     *          The Truststore manager of the application (OSC) hosting the plugin
+     */
+    TrustManager[] getTruststoreManager() throws Exception;
 }
