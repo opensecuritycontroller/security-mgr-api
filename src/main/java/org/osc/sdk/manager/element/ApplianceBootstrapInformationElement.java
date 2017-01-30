@@ -5,7 +5,7 @@ import java.util.List;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Bootstrap information" the manager provides to the appliances
+ * This documents "Bootstrap information" the manager provides to the appliances.
  */
 @ConsumerType
 public interface ApplianceBootstrapInformationElement {
