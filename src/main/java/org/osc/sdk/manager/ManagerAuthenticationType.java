@@ -26,8 +26,26 @@ public enum ManagerAuthenticationType {
 
     private final String text;
 
+
     ManagerAuthenticationType(final String text) {
         this.text = text;
+    }
+
+    /**
+     * Gets the {@link ManagerAuthenticationType} that corresponds to the provided string.
+     * @param test The string value of the targeted type.
+     * @return
+     *  Returns the type for the provided string.
+     */
+    public static ManagerAuthenticationType getType(String text) {
+        for (ManagerAuthenticationType type : ManagerAuthenticationType.values()) {
+            if (text.equals(type.toString())) {
+                return type;
+            }
+        }
+
+        throw new IllegalArgumentException("No enum constant " + ManagerAuthenticationType.class.getCanonicalName()
+                + " Found for " + text);
     }
 
     @Override

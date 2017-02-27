@@ -16,8 +16,6 @@
  *******************************************************************************/
 package org.osc.sdk.manager.api;
 
-import org.osc.sdk.manager.ManagerAuthenticationType;
-import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
 import org.osc.sdk.manager.element.ApplianceManagerConnectorElement;
 import org.osc.sdk.manager.element.VirtualSystemElement;
 import org.osgi.annotation.versioning.ConsumerType;
@@ -132,33 +130,6 @@ public interface ApplianceManagerApi {
     byte[] getPublicKey(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
-     * @return Manager's Name
-     *         e.g. returns "ISM" for Intel Security Manager Plugin
-     */
-    String getName();
-
-    /**
-     * @return Vendor Name e.g. "Intel Security"
-     */
-    String getVendorName();
-
-    /**
-     * @return Manager Plugin Version e.g. "1.0"
-     */
-    String getVersion();
-
-    /**
-     * @return What kind of service this manager provides e.g NGFW, IPS etc.
-     */
-    String getServiceName();
-
-    /**
-     * @return Name of service provided by Manager Plugin. This one is dictated by NSX and will appear in in NSX service
-     *         definitions page.
-     */
-    String getNsxServiceName();
-
-    /**
      * @param ipAddress
      *            IP Address of the Manager
      * @return
@@ -166,34 +137,7 @@ public interface ApplianceManagerApi {
      */
     String getManagerUrl(String ipAddress);
 
-    /**
-     * @return Authentication type supported by this Manager {@link ManagerAuthenticationType}
-     */
-    ManagerAuthenticationType getAuthenticationType();
-
-    /**
-     * @return Subscription type supported by this Manager {@link ManagerNotificationSubscriptionType}
-     */
-    ManagerNotificationSubscriptionType getNotificationType();
-
-    /**
-     * @return True if manager supports Security Group constructs and is capable of Synchronizing it with ISC
-     */
-    boolean isSecurityGroupSyncSupport();
-
     void checkConnection(ApplianceManagerConnectorElement mc) throws Exception;
-
-    /**
-     * Returns True if ISC appliances have ISC agents running on the instance. False otherwise
-     *
-     */
-    boolean isAgentManaged();
-
-    /**
-     * Returns True if the appliance manager supports policy mapping. False otherwise.
-     * The value returned by this method should not change at runtime.
-     */
-    boolean isPolicyMappingSupported();
 
     // TODO: Future For non-agent managed, create API's to retrive status(es) by id
 }

@@ -28,6 +28,23 @@ public enum ManagerNotificationSubscriptionType {
         this.text = text;
     }
 
+    /**
+     * Gets the {@link ManagerNotificationSubscriptionType} that corresponds to the provided string.
+     * @param test The string value of the targeted type.
+     * @return
+     *  Returns the type for the provided string.
+     */
+    public static ManagerNotificationSubscriptionType getType(String text) {
+        for (ManagerNotificationSubscriptionType type : ManagerNotificationSubscriptionType.values()) {
+            if (text.equals(type.toString())) {
+                return type;
+            }
+        }
+
+        throw new IllegalArgumentException("No enum constant " + ManagerNotificationSubscriptionType.class.getCanonicalName()
+                + " Found for " + text);
+    }
+
     @Override
     public String toString() {
         return this.text;
