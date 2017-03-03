@@ -22,6 +22,8 @@ import org.osc.sdk.manager.element.ApplianceManagerConnectorElement;
 import org.osc.sdk.manager.element.VirtualSystemElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
+import java.net.URL;
+
 /**
  * This documents "Manager Apis" used by ISC to communicate with registered Managers. The virtual system element ->
  * Distributed appliance Element -> Manager connector Element does NOT contain the plain Password.
@@ -182,6 +184,14 @@ public interface ApplianceManagerApi {
     boolean isSecurityGroupSyncSupport();
 
     void checkConnection(ApplianceManagerConnectorElement mc) throws Exception;
+
+    /**
+     * Returns full address which should be available to connect manager
+     * @param mc ApplianceManagerConnectorElement
+     * @return URL object contains scheme, host and port
+     * @throws Exception
+     */
+    URL getConnectionUrl(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
      * Returns True if ISC appliances have ISC agents running on the instance. False otherwise
