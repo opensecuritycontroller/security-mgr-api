@@ -19,7 +19,9 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Job State"
+ * This interface represents the the current state of a {@link JobElement}.
+ * It is implemented by a String with one of the following possible values:
+ * 'NOT_RUNNING', 'QUEUED', 'RUNNING' and 'COMPLETED'.
  */
 @ProviderType
 public interface JobStateElement {

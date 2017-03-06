@@ -22,26 +22,28 @@ import org.osc.sdk.manager.element.ManagerPolicyElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Policy Apis"
+ * This interface documents the operations used by OSC to retrieve policy
+ * information from the security managers.
  */
 @ConsumerType
 public interface ManagerPolicyApi {
 
     /**
-     * Return the policy element for a give policy unique id.
+     * Return the policy element for a give policy unique identifier defined by the security manager.
      *
-     * @param id
-     *            The policy id.
-     * @return The policy element. {@link ManagerPolicyElement}
-     * @throws Exception
+     * @param id  the identifier of the targeted policy
+     * @param domainId  the identifier of the domain
+     * @return the policy
+     * @throws Exception upon failure
      */
     ManagerPolicyElement getPolicy(String id, String domainId) throws Exception;
 
     /**
-     * Enumerate and return list of all policies
+     * Retrieves all the policies for a give domain.
      *
-     * @return List of policies
-     * @throws Exception
+     * @param domainId the identifier of the domain
+     * @return the collection of policies under the provided domain
+     * @throws Exception upon failure
      */
     List<? extends ManagerPolicyElement> getPolicyList(String domainId) throws Exception;
 }

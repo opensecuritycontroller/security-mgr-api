@@ -18,33 +18,30 @@ package org.osc.sdk.manager.element;
 
 import org.osgi.annotation.versioning.ConsumerType;
 /**
- * This documents "Distributed Appliance Instance"
+ * This interface represents distributed appliance instances.
+ * <p>
+ * This element is provided by OSC when retrieving manager device members information.
+ * One distributed appliance instance maps to one device member.
  */
 @ConsumerType
 public interface DistributedApplianceInstanceElement {
     /**
-     * @return
-     * return instance element id
+     * @return the OSC identifier of this distributed appliance instance
      */
     Long getId();
 
     /**
-     * @return
-     * return name of the distributed appliance instance element
+     * @return  the name of this distributed appliance instance
      */
-
     String getName();
 
     /**
-     * @return
-     *         Opaque byte array of appliance configuration.
+     * @return the configuration of this distributed appliance instance
      */
-    byte[] getApplianceConfig();
+    byte[] getApplianceConfig(); // TODO emanoel: This does not seem to be used by anybody, remove?
 
     /**
-     * @return
-     *         Virtual System of this Distributed Appliance Instance. {@link VirtualSystemElement}
+     * @return the virtual system related to this distributed appliance instance
      */
-    VirtualSystemElement getVirtualSystem();
-
+    VirtualSystemElement getVirtualSystem(); // TODO emanoel: used by getDeviceMemberConfiguration which is not used by anybody, remove?
 }

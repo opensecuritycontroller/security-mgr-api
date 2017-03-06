@@ -21,30 +21,29 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Describes the member within a security group
+ * This interface represents the protected workloads specified within
+ * security groups {@link ManagerSecurityGroupElement}.
  */
 @ProviderType
 public interface SecurityGroupMemberElement {
-
     /**
-     * The Security Group member id assigned in the security controller.
-     *
+     * @return the identifier of the security group member defined by OSC
      */
     String getId();
 
     /**
-     * The Security Group member name. Can be empty or null.
-     *
+     * @return the name of the security group member defined in OSC
      */
     String getName();
 
+
     /**
-     * Gets the Ip address(s) for this member
+     * @return the IP addresses of the security group member
      */
     List<String> getIpAddresses();
 
     /**
-     * Gets the Mac address(s) for this member
+     * @return the MAC addresses of the security group member
      */
     List<String> getMacAddresses();
 }

@@ -19,19 +19,19 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Device". This represents Device Container
+ * This interface represents devices created by OSC on the the security managers.
+ * A device consists of a group of deployed security function instances defined as
+ * {@link ManagerDeviceMemberElement}
  */
 @ConsumerType
 public interface ManagerDeviceElement {
     /**
-     * @return
-     *         Unique ID of this device in String format
+     * @return the identifier of the device defined by the security manager
      */
     String getId();
 
     /**
-     * @return
-     *         Device Name
+     * @return the name of the device
      */
     String getName();
 }

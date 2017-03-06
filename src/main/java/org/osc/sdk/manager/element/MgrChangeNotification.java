@@ -16,19 +16,23 @@
  *******************************************************************************/
 package org.osc.sdk.manager.element;
 
+import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
+
 /**
- * This provides functionality needed to support Manager element change Notifications.
+ * This class provides the information needed for security managers to send notifications
+ * to OSC. This is applicable only for managers using the notification
+ * type {@link ManagerNotificationSubscriptionType#TRANSIENT_WEB_SOCKET}
  */
 public class MgrChangeNotification {
     /**
-     * This documents "Manager Object Types"
+     * This enum lists the type of objects under notification.
      */
     public enum MgrObjectType {
         POLICY, DOMAIN
     }
 
     /**
-     * This documents "Object State Change"
+     * This enum lists the types of changes that can be notified.
      */
     public enum ChangeType {
         ADDED, UPDATED, DELETED
@@ -38,6 +42,11 @@ public class MgrChangeNotification {
     private final MgrObjectType objectType;
     private final String objectId;
 
+    /**
+     * @param changeType  the type of change being notified by this notification
+     * @param objectType  the type of the entity related to the notification
+     * @param objectId  the identifier of the object related to the notification
+     */
     public MgrChangeNotification(ChangeType changeType, MgrObjectType objectType, String objectId) {
         this.changeType = changeType;
         this.objectType = objectType;
@@ -45,33 +54,29 @@ public class MgrChangeNotification {
     }
 
     /**
-     * @return
-     *         Type of change Notification Registered. {@link ChangeType}
+     * @return the type of change being notified by this notification
      */
     public ChangeType getChangeType() {
-        return changeType;
+        return this.changeType;
     }
 
     /**
-     * @return
-     *         Type of Object which is in context of this change Notification. {@link MgrObjectType}
+     * @return the type of the entity related to the notification
      */
     public MgrObjectType getObjectType() {
-        return objectType;
+        return this.objectType;
     }
 
     /**
-     * @return
-     *         Object Id as a String
+     * @return the identifier of the object related to the notification
      */
     public String getObjectId() {
-        return objectId;
+        return this.objectId;
     }
 
     @Override
     public String toString() {
-        return "MgrChangeNotification [changeType=" + changeType + ", objectType=" + objectType + ", objectId="
-                + objectId + "]";
+        return "MgrChangeNotification [changeType=" + this.changeType + ", objectType=" + this.objectType + ", objectId="
+                + this.objectId + "]";
     }
-
 }

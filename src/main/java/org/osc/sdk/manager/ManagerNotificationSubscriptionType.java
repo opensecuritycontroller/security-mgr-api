@@ -17,32 +17,29 @@
 package org.osc.sdk.manager;
 
 /**
- * This documents "Subscription Types" for sending notifications to ISC
+ *  This enum represents the notification types used by the security manager
+ *  to communicate with OSC.
  */
 public enum ManagerNotificationSubscriptionType {
-    TRANSIENT_WEB_SOCKET("TRANSIENT_WEB_SOCKET"), CALLBACK_URL("CALLBACK_URL"), NONE("NONE");
+    /**
+     * The security manager communicates with OSC using web sockets.
+     */
+    TRANSIENT_WEB_SOCKET("TRANSIENT_WEB_SOCKET"),
+
+    /**
+     * The security manager communicates with OSC using the OSC REST APIs.
+     */
+    CALLBACK_URL("CALLBACK_URL"),
+
+    /**
+     * The security manager does not communicate with OSC.
+     */
+    NONE("NONE");
 
     private final String text;
 
     ManagerNotificationSubscriptionType(final String text) {
         this.text = text;
-    }
-
-    /**
-     * Gets the {@link ManagerNotificationSubscriptionType} that corresponds to the provided string.
-     * @param test The string value of the targeted type.
-     * @return
-     *  Returns the type for the provided string.
-     */
-    public static ManagerNotificationSubscriptionType getType(String text) {
-        for (ManagerNotificationSubscriptionType type : ManagerNotificationSubscriptionType.values()) {
-            if (text.equals(type.toString())) {
-                return type;
-            }
-        }
-
-        throw new IllegalArgumentException("No enum constant " + ManagerNotificationSubscriptionType.class.getCanonicalName()
-                + " Found for " + text);
     }
 
     @Override

@@ -20,65 +20,65 @@ import java.io.IOException;
 
 import javax.websocket.Session;
 
+import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
 import org.osc.sdk.manager.element.MgrChangeNotification;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Web Socket Notification Apis"
- *
- * These Apis are used by ISC to manage notification registration from Manager Plugin.
- * Based on Registration Manager will notify ISC of any Domain/Policy changes.
- * This API is optional and needs to be implemented if
- * {@code ApplianceManagerApi#getNotificationType()} returns TRANSIENT_WEB_SOCKET.
- *
+ * This interface defines the operations used by OSC to manage web socket
+ * notification registration.
+ * <p>
+ * Based on the registration the manager will notify OSC of any domain or policy
+ * changes.
+ * <p>
+ * This API is optional and needs to be implemented only by managers
+ * with notification type {@link ManagerNotificationSubscriptionType#TRANSIENT_WEB_SOCKET}.
  */
 @ConsumerType
 public interface ManagerWebSocketNotificationApi extends AutoCloseable {
 
     /**
-     * @return Port Number where server is listening to Web Socket Connection
+     * @return the port number where server is listening to the web socket connection
      */
     int getPort();
 
     /**
-     * @return provides a URL which ISC will call to connect to Web Socket Server for notifications
-     *         e.g. ws://IP:port or wss://IP:port
+     * @return the URL which OSC will call to connect to web socket server
+     * for notifications, e.g. ws://IP:port or wss://IP:port
      */
     String getUrl();
 
     /**
-     * @return true if server supports HTTPS Web Socket Communication
+     * @return true if the server supports HTTPS web socket communication
      */
     boolean isHttps();
 
     /**
-     * @return Provides additional handshake parameter. Can provide api keys or session Ids etc.
+     * @return additional handshake parameters, i.e.: API keys, session ids, etc.
      */
     String getHandshakeParameters();
 
     /**
-     * This will logout existing Web Socket Connection. No-op if connection does not exist
+     * Logout existing web socket connection. No-op if connection does not exist.
      *
-     * @throws Exception
+     * @throws Exception upon failure
      */
     void logout() throws Exception;
 
     /**
+     * OSC will call this method to subscribe to notifications for policies or domains.
      *
-     * ISC will call this method to subscribe Notifications e.g. Policy, Domain etc..
-     *
-     * @param session
-     *            web socket session. {@link Session}
-     * @throws IOException
+     * @param session  the web socket session
+     * @throws IOException upon failure
      */
     void subscribe(Session session) throws IOException;
 
     /**
-     * @param message
-     *            This helper can be used to re-interpret incoming message or to even change message format if
-     *            necessary.
-     * @return
-     *         ManagerChangeNotification object to notify ISC of any changes. {@link MgrChangeNotification}
+     * Translates a message to a notification object.
+     * <p>
+     * This helper can be used to re-interpret incoming message or to even change message format if necessary.
+     * @param message  the message to be translated
+     * @return the object to notify OSC of any changes
      */
     MgrChangeNotification translateMessage(String message);
 

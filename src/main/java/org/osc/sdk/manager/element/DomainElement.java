@@ -19,16 +19,18 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Domain"
+ * This interface represents security manager domains.
+ * <p>
+ * Some security managers define scopes for the managed entities such as devices or policies.
+ * This interface is used to represent those scopes.
  */
 @ConsumerType
 public interface DomainElement {
 
     /**
-     *
-     * @return
-     *         String representing Manager Domain identity
+     * @return the identifier of the domain defined by the security manager
      */
-    String getMgrId();
-
+    String getMgrId(); // TODO emanoel: looks like this is used on the virtualsystemelement, can we remove this interface and
+    // simply return the domain id from in the virtualsystem? seems like the intention here was to map the OSC db relationshipts
+    // but these interfaces can be simler than our db schema.
 }
