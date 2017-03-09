@@ -19,50 +19,47 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Notification Registration"
+ * This interface represents the information needed by the
+ * security managers to send notifications to OSC.
+ * <p>
+ * OSC retrieves this information from the security managers
+ * to check whether it needs to updated its registration or create
+ * a new one on the security managers.
  */
 @ConsumerType
 public interface ManagerNotificationRegistrationElement {
     /**
-     * @return
-     *         Management IP Address of ISC
+     * @return the OSC IP address known by the security manager
      */
     String getIpAddress();
 
     /**
-     * @return
-     *         ISC Port number
+     * @return the OSC port number known by the security manager
      */
     Integer getPort();
 
     /**
-     * @return
-     *         User name which will be used for authenticate with ISC
+     * @return the OSC user name known by the security manager
      */
     String getUsername();
 
     /**
-     * @return
-     *         User password which will be used to authenticate with ISC
+     * @return the OSC password known by the security manager
      */
     String getPassword();
 
     /**
-     * @return
-     *         URL to be used when notifying to ISC
+     * @return the OSC relative URL used for notifications
      */
     String getRelativeURL();
 
     /**
-     * @return
-     *         Previously Known IP Address of ISC
+     * @return the previous OSC IP address known by the security manager
      */
     String getOldIpAddress();
 
     /**
-     * @return
-     *         True if already registered, False otherwise
-     *
+     * @return true if a registration was found, false otherwise
      */
     boolean isEmpty();
 }

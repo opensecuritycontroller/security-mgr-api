@@ -21,17 +21,22 @@ import java.util.Map;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Appliance Bootstrap definition"
+ * This interface represents the information provided by OSC to the manager plugin
+ * when retrieving the data needed to bootstrap the appliance.
  */
 @ProviderType
 public interface BootStrapInfoProviderElement {
 
+    /**
+     * @return the name of the bootstrap info
+     */
     String getName();
 
     /**
-     * Returns a map of opaque key-value properties to be injected as part of bootstrapping process
-     * @return
+     * Used by OSC to provide additional information to the plugin.
+     * The plugin can add this information to the bootstrap data returned to OSC.
+     *
+     * @return a map of opaque key-value properties to be injected as part of bootstrapping process
      */
     Map<String, String> getBootStrapProperties();
-
 }

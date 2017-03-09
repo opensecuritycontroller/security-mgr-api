@@ -18,71 +18,66 @@ package org.osc.sdk.manager.api;
 
 import java.util.List;
 
+import org.osc.sdk.manager.Constants;
 import org.osc.sdk.manager.element.ManagerSecurityGroupElement;
 import org.osc.sdk.manager.element.SecurityGroupMemberListElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Security Group Apis". This API is optional and needs to be implemented if
- * {@code ApplianceManagerApi#isSecurityGroupSyncSupport()} returns true.
+ * This interface documents the operations used by OSC to manage security groups and members.
+ * <p>
+ * This API is required only by security managers configured to sync security groups,
+ * see {@link Constants#SYNC_SECURITY_GROUP}.
  */
 @ConsumerType
 public interface ManagerSecurityGroupApi extends AutoCloseable {
 
     /**
-     * Create an security group
+     * Creates a security group.
      *
-     * @param name
-     *            Name of the security group
-     * @param iscId
-     *            Unique Identifier (String) representing ISC which is responsible for this Security Group
-     * @param memberList
-     *            The members within the security group
+     * @param name the name of the security group
+     * @param iscId  the unique identifier of the securitu group defined by OSC
+     * @param memberList the members within the security group
      *
-     * @return
-     *         The Manager Id for the newly created Security Group object
+     * @return the identifier of the security group defined by the security manager
+     * @throws Exception upon failure
      */
     String createSecurityGroup(String name, String iscId, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
-     * Update an Security Group object
+     * Updates security group.
      *
-     * @param sgId
-     *            The Security Group object id
-     * @param name
-     *            The updated name of the Security Group object
-     * @param memberList
-     *            The members within the security group
+     * @param sgId  the identifier of the security group
+     * @param name  the new name for the security group
+     * @param memberList  the members within the security group
+     * @throws Exception upon failure
      */
     void updateSecurityGroup(String sgId, String name, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
-     * Delete an Security Group object
+     * Deletes a security group.
      *
-     * @param sgId
-     *            The Security Group object id
-     * @throws Exception
+     * @param sgId  the identifier of the security group
+     * @throws Exception upon failure
      */
     void deleteSecurityGroup(String sgId) throws Exception;
 
     /**
-     * List all security groups
+     * Retrieves all the security groups from the security manager.
      *
-     * @return
-     *         List of security groups. List<{@link ManagerSecurityGroupElement}>
+     * @return the collection of all the security groups present in the security manager
+     * @throws Exception upon failure
      */
     List<? extends ManagerSecurityGroupElement> getSecurityGroupList() throws Exception;
 
     /**
-     * @param sgId
-     *            The Security Group object id
-     * @return
-     *         Security Group Object {@link ManagerSecurityGroupElement}
-     * @throws Exception
+     * Retrieves the security group given its identifier.
+     * @param sgId the identifier of the security group
+     * @return the security group
+     * @throws Exception upon failure
      */
     ManagerSecurityGroupElement getSecurityGroupById(String sgId) throws Exception;
 
     @Override
     void close();
-
 }

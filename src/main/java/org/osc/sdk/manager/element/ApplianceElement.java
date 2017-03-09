@@ -19,16 +19,13 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Appliance Definition"
+ * This interface represents a security appliance.
  */
 @ConsumerType
 public interface ApplianceElement {
 
     /**
-     *
-     * @return
-     *         Appliance Model
+     * @return the security appliance model
      */
     String getModel();
-
 }

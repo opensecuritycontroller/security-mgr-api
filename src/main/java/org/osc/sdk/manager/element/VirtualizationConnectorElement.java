@@ -19,16 +19,15 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Virtualization Connector"
+ * This interface represents the virtualization platform know by OSC
+ * where the assets under protection are hosted.
  */
 @ConsumerType
 public interface VirtualizationConnectorElement {
 
     /**
-     *
-     * @return
-     *         Virtualization Connector name
+     * @return the name of the virtualization connector defined in OSC
      */
-    String getName();
+    String getName(); // TODO emanoel: I believe we can remove this type and add the name directly on the VS
 
 }

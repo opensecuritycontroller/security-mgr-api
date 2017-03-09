@@ -18,31 +18,33 @@ package org.osc.sdk.manager.api;
 
 import java.util.List;
 
+import org.osc.sdk.manager.Constants;
 import org.osc.sdk.manager.element.ManagerDomainElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Domain Apis". This API is optional and needs to be implemented if
- * {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
+ * This interface documents the operations used by OSC to retrieve domain
+ * information from the security managers.
+ * <p>
+ * This API is required only for managers that support policy mapping, see {@link Constants#SYNC_POLICY_MAPPING}
  */
 @ConsumerType
 public interface ManagerDomainApi {
 
     /**
-     * Return the domain element for a give domain unique id.
+     * Return the domain element for a give domain unique identifier defined by the security manager.
      *
-     * @param id
-     *            The domain id (String).
-     * @return The domain element. {@link ManagerDomainElement}
-     * @throws Exception
+     * @param id  the identifier of the domain
+     * @return the targeted domain
+     * @throws Exception upon failure
      */
     ManagerDomainElement getDomain(String id) throws Exception;
 
     /**
-     * Enumerate and return list of all domains
+     * Return all the domains defined in the security manager.
      *
-     * @return List of domains. List<{@link ManagerDomainElement}>
-     * @throws Exception
+     * @return the collection of all domains defined in the security manager
+     * @throws Exception upon failure
      */
     List<? extends ManagerDomainElement> listDomains() throws Exception;
 }

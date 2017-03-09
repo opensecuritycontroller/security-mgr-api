@@ -17,66 +17,55 @@
 package org.osc.sdk.manager.element;
 
 import org.osgi.annotation.versioning.ConsumerType;
+
 /**
- * This documents "Virtual System"
+ * This interface represents the virtual systems defined in OSC.
+ * <p>
+ * A virtual system consists of the relationship between a domain defined by the
+ * security manager, a virtualization platform known to OSC and the security function.
  */
 @ConsumerType
 public interface VirtualSystemElement {
 
     /**
-     *
-     * @return
-     *         Long unique identifier of the virtual system
+     * @return the identifier of the virtual system defined by OSC
      */
     Long getId();
 
     /**
-     *
-     * @return
-     *         Unique Virtual System generated name
+     * @return the unique name of the virtual system defined by OSC
      */
     String getName();
 
     /**
-     * @return
-     *         String manager identifier created for this virtual system
+     * @return the identifier of the security manager defined in OSC that provided the domain {@link #getDomain()}
      */
     String getMgrId();
 
     /**
-     * @return
-     *         Distributed Appliance interface object for this virtual system. {@link DistributedApplianceElement}
+     * @return the distributed appliance associated with this virtual system
      */
     DistributedApplianceElement getDistributedAppliance();
 
     /**
      *
-     * @return
-     *         Virtualization Connector interface object used by this virtual system
-     *         {@link VirtualizationConnectorElement}
+     * @return the virtualization connector defined in OSC associated with this virtual system
      */
     VirtualizationConnectorElement getVirtualizationConnector();
 
     /**
      *
-     * @return
-     *         Appliance Software Version interface object deployed by this virtual system.
-     *         {@link ApplianceSoftwareVersionElement}
+     * @return the software version of the appliance associated with this virtual system
      */
     ApplianceSoftwareVersionElement getApplianceSoftwareVersion();
 
     /**
-     *
-     * @return
-     *         Domain interface object which this virtual system was created for. {@link DomainElement}
+     * @return the domain defined in the security manager related to this virtual system
      */
     DomainElement getDomain();
 
     /**
-     *
-     * @return
-     *         Opaque array of bytes representing keystore generated for this virtual system container.
+     * @return the opaque array of bytes representing keystore generated for this virtual system
      */
     byte[] getKeyStore();
-
 }

@@ -16,13 +16,15 @@
  *******************************************************************************/
 package org.osc.sdk.manager.api;
 
+import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
 import org.osc.sdk.manager.element.ApplianceManagerConnectorElement;
 import org.osc.sdk.manager.element.VirtualSystemElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Apis" used by ISC to communicate with registered Managers. The virtual system element ->
- * Distributed appliance Element -> Manager connector Element does NOT contain the plain Password.
+ * This interface represents the main entry point for all the interactions with the security manager.
+ * It provides a way for OSC to instantiate the other security manager APIs and basic information like
+ * the status of the manager and its URL.
  */
 @ConsumerType
 public interface ApplianceManagerApi {
@@ -30,113 +32,102 @@ public interface ApplianceManagerApi {
     //TODO:Future add typed exceptions...
 
     /**
-     * @param mc
-     *            the manager connector element.
-     * @param vs
-     *            Virtual System Element {@link VirtualSystemElement}.
-     * @return Device Api
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @param vs  provides context information of the virtual system, see {@link VirtualSystemElement}
+     * @return the APIs used by OSC to manage devices
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerDeviceApi createManagerDeviceApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs)
             throws Exception;
 
     /**
-     * @param mc
-     *            the manager connector element.
-     * @param vs
-     *            Virtual System Element {@link VirtualSystemElement}.
-     * @return ManagerSecurityGroupInterfaceApi Api. It can return null if {@code #isPolicyMappingSupported()} returns false.
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @param vs  provides context information of the virtual system, see {@link VirtualSystemElement}
+     * @return the APIs used by OSC to manage security group interfaces
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerSecurityGroupInterfaceApi createManagerSecurityGroupInterfaceApi(ApplianceManagerConnectorElement mc,
             VirtualSystemElement vs) throws Exception;
 
     /**
-     * @param mc
-     *            the manager connector element.
-     * @param vs
-     *            Virtual System Element {@link VirtualSystemElement}.
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @param vs  provides context information of the virtual system, see {@link VirtualSystemElement}
+     * @return the APIs used by OSC to manage security groups
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerSecurityGroupApi createManagerSecurityGroupApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs)
             throws Exception;
 
     /**
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Policy Api
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @return the APIs used by OSC to retrieve security policies
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerPolicyApi createManagerPolicyApi(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Domain Api. It can be null if {@code #isPolicyMappingSupported()} returns false.
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @return the APIs used by OSC to retrieve domains from the security managers
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerDomainApi createManagerDomainApi(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Agent Api. It can be null if {@code #isAgentSupported()} returns false.
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @param vs  provides context information of the virtual system, see {@link VirtualSystemElement}
+     * @return the APIs used by OSC to manage device members
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerDeviceMemberApi createManagerDeviceMemberApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs) throws Exception;
 
     /**
+     * @param mc  provides information needed to connect with the security manager
+     * @return the APIs used by OSC to manage notification registration
      *
-     * Implementation of this method is required if Manager uses Web Socket Subscription Type for Notifications
-     *
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Web Socket Notification Api
-     * @throws UnsupportedOperationException
-     *             if WebSocket Notification is not supported
-     * @throws Exception
+     * @throws UnsupportedOperationException if the notification type is
+     * not {@link ManagerNotificationSubscriptionType#TRANSIENT_WEB_SOCKET}
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerWebSocketNotificationApi createManagerWebSocketNotificationApi(ApplianceManagerConnectorElement mc)
             throws Exception;
 
     /**
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Callback Notification Api
-     * @throws UnsupportedOperationException
-     *             if Callback Notification is not supported
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @return the APIs used by OSC to manage notification registration
+     *
+     * @throws UnsupportedOperationException if the notification type is
+     * not {@link ManagerNotificationSubscriptionType#CALLBACK_URL}
+     * @throws Exception when an instance of the API cannot be created
      */
     ManagerCallbackNotificationApi createManagerCallbackNotificationApi(ApplianceManagerConnectorElement mc)
             throws Exception;
 
     /**
-     * @param mc
-     *            the manager connector element. RESTful BASIC_AUTH password in the CLEAR.
-     * @param vs
-     *            Virtual System Element {@link VirtualSystemElement}
-     * @return Job Notification Api
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @param vs  provides context information of the virtual system, see {@link VirtualSystemElement}
+     * @return the APIs used by OSC to report job and task events
+     * @throws Exception when an instance of the API cannot be created
      */
     IscJobNotificationApi createIscJobNotificationApi(ApplianceManagerConnectorElement mc, VirtualSystemElement vs)
             throws Exception;
 
     /**
-     * @param mc
-     *            Manager Connector Element {@link ApplianceManagerConnectorElement}
-     * @return Public key (byte array)
-     * @throws Exception
+     * @param mc  provides information needed to connect with the security manager
+     * @return the security manager public key
+     * @throws Exception when an instance of the API cannot be created
      */
     byte[] getPublicKey(ApplianceManagerConnectorElement mc) throws Exception;
 
     /**
-     * @param ipAddress
-     *            IP Address of the Manager
-     * @return
-     *         URL to launch Management Console
+     * @param ipAddress  the IP address of the security manager
+     * @return the URL for the security manager management console
      */
-    String getManagerUrl(String ipAddress);
+    String getManagerUrl(String ipAddress); // TODO emanoel: why do we need to provide the ip address? isnt fair to expect the plugin to know?
 
+    /**
+     * @param mc  provides information needed to connect with the security manager
+     * @throws Exception if the security manager cannot be reached or is not functional
+     */
     void checkConnection(ApplianceManagerConnectorElement mc) throws Exception;
 
     // TODO: Future For non-agent managed, create API's to retrive status(es) by id

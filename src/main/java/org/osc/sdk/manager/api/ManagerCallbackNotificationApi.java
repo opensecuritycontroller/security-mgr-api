@@ -16,120 +16,102 @@
  *******************************************************************************/
 package org.osc.sdk.manager.api;
 
+import org.osc.sdk.manager.ManagerNotificationSubscriptionType;
 import org.osc.sdk.manager.element.ManagerNotificationRegistrationElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Callback Notification Apis".
- * These Apis are used by ISC to manage notification registration from Manager Plugin.
- * Based on Registration Manager will notify ISC of any Domain/Policy changes
- * This API is optional and needs to be implemented if
- * {@code ApplianceManagerApi#getNotificationType()} returns CALLBACK_URL.
+ * This interface defines the operations used by OSC to manage callback
+ * notification registration.
+ * <p>
+ * Based on the registration the manager will notify OSC of any domain or policy
+ * changes.
+ * <p>
+ * This API is optional and needs to be implemented only by managers
+ * with notification type {@link ManagerNotificationSubscriptionType#CALLBACK_URL}.
  */
 @ConsumerType
 public interface ManagerCallbackNotificationApi extends AutoCloseable {
 
     /**
+     * Creates a domain notification registration.
      *
-     * Domain change Notification registration.
-     *
-     * @param port
-     *            Port Number
-     * @param username
-     *            User Name
-     * @param password
-     *            Password
-     * @return
-     *         String "Resource ID" created as a part of Registration
-     * @throws Exception
+     * @param port  the port number to be used when performing the callback
+     * @param username  the user name to be used when performing the callback
+     * @param password  the password to be used when performing the callback
+     * @return the identifier of the registration defined by the security manager
+     * @throws Exception upon failure
      */
     String createDomainNotificationRegistration(Integer port, String username, String password)
             throws Exception;
 
     /**
+     * Updates a domain notification registration.
      *
-     * This Api is used to update Domain Notification registration attributes
-     *
-     * @param oldIpAddress
-     *            Previously registered IP Address used to identity the registration which Manager should Update.
-     * @param port
-     *            new port number
-     * @param
-     *        new user name
-     * @param
-     *        new password
-     * @throws Exception
+     * @param oldIpAddress  the previous IP address associated with the registration
+     * @param port  the new port number to be used when performing the callback
+     * @param username  the new user name to be used when performing the callback
+     * @param password  the new password to be used when performing the callback
+     * @throws Exception upon failure
      */
     void updateDomainNotificationRegistration(String oldIpAddress, Integer port, String username,
             String password) throws Exception;
 
     /**
+     * Retrieves the domain notification registration attributes from the security manager
      *
-     * This Api is used to query Domain Notification Registration Attributes from Manager Connector
-     *
-     * @return {@link ManagerNotificationRegistrationElement}
-     * @throws Exception
+     * @return the notification registration information from the security manager
+     * @throws Exception upon failure
      */
     ManagerNotificationRegistrationElement getDomainNotificationRegistration() throws Exception;
 
     /**
+     * Deletes the existing domain notification registration.
+     * <p>
+     * Once deleted OSC will no longer receive any domain change notifications.
      *
-     * Deletes existing Domain Notification Registration.
-     * Once deleted ISC will no longer receive any Domain change Notifications.
-     *
-     * @throws Exception
+     * @throws Exception upon failure
      */
     void deleteRegisteredDomain() throws Exception;
 
     /**
+     * Creates a policy group notification registration.
      *
-     * Policy change Notification registration.
-     *
-     * @param port
-     *            Port Number
-     * @param username
-     *            User Name
-     * @param password
-     *            Password
-     * @return String
-     *         String "Resource ID" created as a part of Registration
-     * @throws Exception
+     * @param port  the port number to be used when performing the callback
+     * @param username  the user name to be used when performing the callback
+     * @param password  the password to be used when performing the callback
+     * @return the identifier of the registration defined by the security manager
+     * @throws Exception upon failure
      */
     String createPolicyGroupNotificationRegistration(Integer port, String username, String password)
             throws Exception;
 
     /**
+     * Updates a policy group notification registration.
      *
-     * This Api is used to update Policy Notification registration attributes
-     *
-     * @param oldIpAddress
-     *            Previously registered IP Address used to identity the registration which Manager should Update.
-     * @param port
-     *            new port number
-     * @param
-     *        new user name
-     * @param
-     *        new password
-     * @throws Exception
+     * @param oldIpAddress  the previous IP address associated with the registration
+     * @param port  the new port number to be used when performing the callback
+     * @param username  the new user name to be used when performing the callback
+     * @param password  the new password to be used when performing the callback
+     * @throws Exception upon failure
      */
     void updatePolicyGroupNotificationRegistration(String oldIpAddress, Integer port, String username,
             String password) throws Exception;
 
     /**
+     * Retrieves the policy group notification registration attributes from the security manager
      *
-     * This Api is used to query Policy Notification Registration Attributes from Manager Connector
-     *
-     * @return {@link ManagerNotificationRegistrationElement}
-     * @throws Exception
+     * @return the notification registration information from the security manager
+     * @throws Exception upon failure
      */
     ManagerNotificationRegistrationElement getPolicyGroupNotificationRegistration() throws Exception;
 
     /**
+     * Deletes the existing policy group notification registration.
+     * <p>
+     * Once deleted OSC will no longer receive any policy group change notifications.
      *
-     * Deletes existing Policy Notification Registration.
-     * Once deleted ISC will no longer receive any Policy change Notifications.
-     *
-     * @throws Exception
+     * @throws Exception upon failure
      */
     void deleteRegisteredPolicyGroup() throws Exception;
 

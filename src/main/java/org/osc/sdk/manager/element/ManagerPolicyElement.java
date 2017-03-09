@@ -19,19 +19,17 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Policy"
+ * This interface represents the security policies provided by the security managers.
  */
 @ConsumerType
 public interface ManagerPolicyElement {
     /**
-     * @return
-     *         Unique Identifier representing Policy in Manager as a String
+     * @return the identifier of the policy defined by the security manager
      */
     String getId();
 
     /**
-     * @return
-     *         Policy Name
+     * @return the name of the policy define in the security manager
      */
     String getName();
 }

@@ -17,40 +17,30 @@
 package org.osc.sdk.manager.element;
 
 import org.osgi.annotation.versioning.ConsumerType;
+
 /**
- * This documents "Distributed Appliance"
+ * This interface represents the distributed security appliances.
  */
 @ConsumerType
 public interface DistributedApplianceElement {
 
     /**
-     *
-     * @return
-     *         Appliance Manager Connector interface object used by the Distributed Appliance.
-     *         The RESTful BASIC_AUTH password is <b>NOT</b> in the clear on this instance.
-     *         {@link ApplianceManagerConnectorElement}
+     * @return the manager connector related to this distributed appliance
      */
-    ApplianceManagerConnectorElement getApplianceManagerConnector();
+    ApplianceManagerConnectorElement getApplianceManagerConnector(); // TODO emanoel: It does not look like the plugins or OSC uses this, can we remove?
 
     /**
-     *
-     * @return
-     *         Appliance interface object used by the Distributed Appliance. {@link ApplianceElement}
+     * @return the appliance element related to this distributed appliance
      */
     ApplianceElement getAppliance();
 
     /**
-     *
-     * @return
-     *         String representing the Appliance Software Version used by the Distributed Appliance
+     * @return the software version of this distributed appliance
      */
-    String getApplianceVersion();
+    String getApplianceVersion(); // TODO emanoel: instead of this and the appliance element can we just return the ApplianceSoftwareVersionElement?
 
     /**
-     * Not used.
-     *
-     * @return
+     * @return the secret key of the manager related to this distributed appliance
      */
-    String getMgrSecretKey();
-
+    String getMgrSecretKey(); // TODO emanoel: Is this used? If so does it change with every DA or can it be provided along with the manager conector?
 }
