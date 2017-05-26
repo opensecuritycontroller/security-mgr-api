@@ -1,0 +1,2 @@
+# security-mgr-api
+[![Build Status](https://travis-ci.com/opensecuritycontroller/security-mgr-api.svg?token=FzxT1Qx9H6sqEHPcKhqW&branch=master)](https://travis-ci.com/opensecuritycontroller/security-mgr-api)
