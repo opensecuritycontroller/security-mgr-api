@@ -139,5 +139,6 @@ public interface ApplianceManagerApi {
 
     void checkConnection(ApplianceManagerConnectorElement mc) throws Exception;
 
+    void testCheckConnection(ApplianceManagerConnectorElement mc) throws Exception;
     // TODO: Future For non-agent managed, create API's to retrive status(es) by id
 }
