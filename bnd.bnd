@@ -2,3 +2,6 @@
 
 # Export any package defined by the current project which is versioned
 -exportcontents: ${packages;VERSIONED}
+
+# Baseline the bundle
+-baseline: org.osc.api;version=1.0.0

@@ -207,7 +207,7 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
+              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>1.4.1</version>
@@ -231,6 +231,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+		    <groupId>biz.aQute.bnd</groupId>
+		    <artifactId>bnd-baseline-maven-plugin</artifactId>
+		    <version>3.3.0</version>
+		    <configuration>
+		    		<!-- The current bundle baseline is same as the release bundle baseline as of now.This will break the build. So this configuration is disabled.
+		    		Once the bundle version is bumped up for development activity, it will be enabled -->
+		    		<failOnMissing>false</failOnMissing>
+		    		<!-- continueOnError configuration will be enabled for development activities. It will be disabled during release activity. -->
+					<continueOnError>true</continueOnError>
+					<fullReport>true</fullReport>
+				</configuration>
+		    <executions>
+		        <execution>
+		            <id>baseline</id>
+		            <goals>
+		                <goal>baseline</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		</plugin>
 		</plugins>
 	</build>
     <reporting>
