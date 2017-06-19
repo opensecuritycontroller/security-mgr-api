@@ -18,7 +18,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
     <groupId>org.osc.api</groupId>
-	<version>2.0.0</version>
+	<version>1.0.0</version>
 	<description>OSC Security Manager API</description>
 	<artifactId>security-mgr-api</artifactId>
 	<name>org.osc.api:security-mgr-api</name>
@@ -207,7 +207,7 @@
 					</execution>
 				</executions>
 			</plugin>
-             <plugin>
+              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>1.4.1</version>
@@ -231,11 +231,15 @@
                     </execution>
                 </executions>
             </plugin>
-             <plugin>
+            <plugin>
 		    <groupId>biz.aQute.bnd</groupId>
 		    <artifactId>bnd-baseline-maven-plugin</artifactId>
 		    <version>3.3.0</version>
 		    <configuration>
+		    		<!-- The current bundle baseline is same as the release bundle baseline as of now.This will break the build. So this configuration is disabled.
+		    		Once the bundle version is bumped up for development activity, it will be enabled -->
+		    		<failOnMissing>false</failOnMissing>
+		    		<!-- continueOnError configuration will be enabled for development activities. It will be disabled during release activity. -->
 					<continueOnError>true</continueOnError>
 					<fullReport>true</fullReport>
 				</configuration>
