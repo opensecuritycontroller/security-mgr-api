@@ -26,11 +26,11 @@
     <distributionManagement>
         <repository>
             <id>osc-nexus</id>
-            <url>https://ci.opensecuritycontroller.org:8081/nexus/content/repositories/releases</url>
+            <url>http://ci.opensecuritycontroller.org:8082/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
 			<id>osc-nexus</id>
-			<url>https://ci.opensecuritycontroller.org:8081/nexus/content/repositories/osc-snapshot</url>
+			<url>http://ci.opensecuritycontroller.org:8082/nexus/content/repositories/osc-snapshot</url>
 		</snapshotRepository>
     </distributionManagement>
 	<properties>
@@ -231,6 +231,24 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+ 		    <groupId>biz.aQute.bnd</groupId>
+ 		    <artifactId>bnd-baseline-maven-plugin</artifactId>
+ 		    <version>3.3.0</version>
+ 		    <configuration>
+ 		    		<failOnMissing>true</failOnMissing>		    	
+ 					<continueOnError>false</continueOnError>
+ 					<fullReport>true</fullReport>
+ 				</configuration>
+ 		    <executions>
+ 		        <execution>
+ 		            <id>baseline</id>
+ 		            <goals>
+ 		                <goal>baseline</goal>
+ 		            </goals>
+ 		        </execution>
+ 		    </executions>
+ 		</plugin>
 		</plugins>
 	</build>
     <reporting>
