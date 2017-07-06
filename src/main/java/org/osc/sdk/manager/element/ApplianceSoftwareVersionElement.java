@@ -19,20 +19,18 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Appliance Software Version"
+ * This interface represents software version of the  security appliance.
  */
 @ConsumerType
 public interface ApplianceSoftwareVersionElement {
 
     /**
-     * @return
-     *         Appliance Software Version String
+     * @return the appliance software version
      */
     String getApplianceSoftwareVersion();
 
     /**
-     * @return
-     *         Model of this appliance
+     * @return the appliance model
      */
-    String getApplianceModel();
+    String getApplianceModel(); // TODO emanoel: why do we need the appliance here and in the appliance element?
 }

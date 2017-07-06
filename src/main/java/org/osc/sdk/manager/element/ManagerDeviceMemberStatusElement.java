@@ -21,24 +21,83 @@ import java.util.Date;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Agent"
+ * This interface represents the status information of the {@link ManagerDeviceMemberElement}.
  */
 @ConsumerType
 public interface ManagerDeviceMemberStatusElement {
+    /**
+     * @return the version of the appliance corresponding to the device member
+     */
     String getVersion();
-    Long getRx();     // Received packets to security function appliance
-    Long getTxSva();   // Packet sent out as instructed by security function appliance
-    Long getDropSva(); // Dropped as instructed by security function appliance
+
+    /**
+     * @return the count of the packets received by the security function
+     */
+    Long getRx();
+
+    /**
+     * @return the count of packets sent by the security function
+     */
+    Long getTxSva();
+
+    /**
+     * @return the count of packets dropped by the security function
+     */
+    Long getDropSva();
+
+    /**
+     * @return the current time on the virtualization unit hosting the appliance
+     */
     Date getCurrentServerTime();
+
+    /**
+     * @return the IP address of the appliance
+     */
     String getApplianceIp();
+
+    /**
+     * @return the network gateway of the appliance
+     */
     String getApplianceGateway();
+
+    /**
+     * @return the subnet mask of the appliance
+     */
     String getApplianceSubnetMask();
+
+    /**
+     * @return the name of the appliance
+     */
     String getApplianceName();
+
+    /**
+     * @return the IP address of the appliance security manager
+     */
     String getManagerIp();
+
+    /**
+     * @return the IP address of the security controller associated with this appliance
+     */
     String getBrokerIp();
 
+    /**
+     * @return whether the appliance has been discovered by the security manager
+     */
     Boolean isDiscovered();
+
+    /**
+     * @return whether the appliance is fully configured by the security manager and
+     * it is ready to perform traffic inspection
+     */
     Boolean isInspectionReady();
+
+    /**
+     * @return the public IP address of the appliance if available
+     */
     String getPublicIp();
+
+    /**
+     * @return the {@link DistributedApplianceInstanceElement} related to this device member
+     */
     DistributedApplianceInstanceElement getDistributedApplianceInstanceElement();
 }

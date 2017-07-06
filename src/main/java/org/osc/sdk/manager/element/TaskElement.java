@@ -19,44 +19,43 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Task"
+ * This interface represents the asynchronous tasks used by
+ * OSC to synchronize information with external services.
+ * <p>
+ *  Tasks are a unit of execution within a {@link JobElement}.
  */
 @ProviderType
 public interface TaskElement {
 
     /**
-     * @return
-     *         Task Id
+     * @return the identifier of the task defined by OSC
      */
     Long getId();
 
     /**
-     * @return
+     * @return the parent job of this task
      */
     JobElement getJob();
 
     /**
-     * @return
-     *         Job Id. {@link JobElement}
+     * @return the state of this task, the possible values
+     * are 'NOT_RUNNING', 'QUEUED', 'PENDING', 'RUNNING' and 'COMPLETED'
      */
     TaskStateElement getState();
 
     /**
-     * @return
-     *         Task's current Status. {@link TaskStatusElement}
+     * @return the status of this task, the possible values
+     * are 'FAILED', 'SKIPPED', 'PASSED' and 'ABORTED'
      */
     TaskStatusElement getStatus();
 
     /**
-     * @return
-     *         Task Name
+     * @return the name of the task
      */
     String getName();
 
     /**
-     * @return
-     *         Reason explaining why this Task Failed.
+     * @return the details about the failure of this task if applicable
      */
     Throwable getFailReason();
-
 }

@@ -19,16 +19,16 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Domain"
+ * This interface represents security manager domains.
+ * <p>
+ * Some security managers define scopes for the managed entities such as devices or policies.
+ * This interface is used to represent those scopes.
  */
 @ConsumerType
 public interface DomainElement {
 
     /**
-     *
-     * @return
-     *         String representing Manager Domain identity
+     * @return the identifier of the domain defined by the security manager
      */
     String getMgrId();
-
 }

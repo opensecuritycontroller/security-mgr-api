@@ -19,7 +19,10 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Job Status"
+ * This interfaces represent the the current status of a {@link JobElement}.
+ * <p>
+ * It is implemented by a String with one of the following possible values:
+ * 'FAILED', 'PASSED' and 'ABORTED'.
  */
 @ProviderType
 public interface JobStatusElement {

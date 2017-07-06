@@ -18,77 +18,74 @@ package org.osc.sdk.manager.api;
 
 import java.util.List;
 
+import org.osc.sdk.manager.Constants;
 import org.osc.sdk.manager.element.ManagerSecurityGroupInterfaceElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Security Group Interface Apis" (Security Group -> Policy mapping).
- * This API is optional and needs to be implemented if {@code ApplianceManagerApi#isPolicyMappingSupported()} returns true.
+ * This interface documents the operations used by OSC to manage security group interfaces.
+ * <p>
+ * This API is required only by security managers configured to sync policy mappings,
+ * see {@link Constants#SYNC_POLICY_MAPPING}.
  */
 @ConsumerType
 public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
 
     /**
-     * Create security group interface within context of VS device container
+     * Creates a security group interface within context of the current virtual system
      *
-     * @param securityGroup
-     * @return
-     *         Security Group Interface Id (String) is successfully created
+     * @param name  the name of the security group interface
+     * @param policyId  the identifier of the policy
+     * @param tag  the tag associated with the policy defined by OSC
+     * @return the identifier of the created policy
      *
-     * @throws Exception
+     * @throws Exception upon failure
      */
     String createSecurityGroupInterface(String name, String policyId, String tag) throws Exception;
 
     /**
-     * @param id
-     *            The security group id to update
-     * @param name
-     *            Security Group name
-     * @param policyId
-     *            Policy Id associated with this Security Group Interface
-     * @param tag
-     *            Policy Tag binded with this Security Group Interface
-     * @throws Exception
+     * Updates a security group interface within context of the current virtual system
+     *
+     * @param id  the identifier of the security group interface to be updated
+     * @param name  the new name of the security group interface
+     * @param policyId  the identifier of the new policy
+     * @param tag  the new tag associated with the policy defined by OSC
+     *
+     * @throws Exception upon failure
      */
     void updateSecurityGroupInterface(String id, String name, String policyId, String tag) throws Exception;
 
     /**
-     * Delete security group interface within context of VS device container
+     * Deletes a security group interface within context of the current virtual system.
      *
-     * @param id
-     *            The id of the security group interface to delete
-     * @throws Exception
+     * @param id the identifier of the security group interface to be deleted
+     * @throws Exception upon failure
      */
     void deleteSecurityGroupInterface(String id) throws Exception;
 
     /**
-     * Find security group by id within the context of VS device container and and return security group element
+     * Finds the security group interface by its identifier within the context of the current virtual system.
      *
-     * @param id
-     *            The security group id to locate
-     * @return
-     *         The security group element found. Null if not found. {@link ManagerSecurityGroupInterfaceElement}
-     * @throws Exception
+     * @param id  the identifier of the security group interface
+     * @return the security group interface, null if not found
+     * @throws Exception upon failure
      */
     ManagerSecurityGroupInterfaceElement getSecurityGroupInterfaceById(String id) throws Exception;
 
     /**
-     * Locate Security group by name with in the context of VS device container and return unique id if found.
+     * Finds the security group interface by its name within the context of the current virtual system.
      *
-     * @param name
-     *            The security group name to locate.
-     * @return
-     *         The security group id (String).
-     * @throws Exception
+     * @param name  the name of the security group interface
+     * @return the security group interface, null if not found
+     * @throws Exception upon failure
      */
     String findSecurityGroupInterfaceByName(String name) throws Exception;
 
     /**
-     * Get list of all security group interfaces within the context of the VS device container.
+     * Gets all the security group interfaces within the context of the current virtual system.
      *
-     * @return
-     *         The security group element list. List<{@link ManagerSecurityGroupInterfaceElement}>
-     * @throws Exception
+     * @return the collection of security group interfaces.
+     * @throws Exception upon failure
      */
     List<? extends ManagerSecurityGroupInterfaceElement> listSecurityGroupInterfaces() throws Exception;
 

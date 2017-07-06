@@ -17,12 +17,18 @@
 package org.osc.sdk.manager;
 
 /**
- * This documents "Authentication Types". In this version we support two different types of authentication
- * Base Auth uses username and password
- * Key_Auth uses API Key
+ * This enum represents the authentication types supported by the security manager.
  */
 public enum ManagerAuthenticationType {
-    BASIC_AUTH("BASIC_AUTH"), KEY_AUTH("KEY_AUTH");
+    /**
+     * User name/password authentication.
+     */
+    BASIC_AUTH("BASIC_AUTH"),
+
+    /**
+     * API key authentication.
+     */
+    KEY_AUTH("KEY_AUTH");
 
     private final String text;
 
@@ -32,10 +38,9 @@ public enum ManagerAuthenticationType {
     }
 
     /**
-     * Gets the {@link ManagerAuthenticationType} that corresponds to the provided string.
-     * @param test The string value of the targeted type.
-     * @return
-     *  Returns the type for the provided string.
+     * Gets the {@link ManagerAuthenticationType} corresponding to the provided string.
+     * @param text the string value of the targeted type
+     * @return the type for the provided string
      */
     public static ManagerAuthenticationType getType(String text) {
         for (ManagerAuthenticationType type : ManagerAuthenticationType.values()) {

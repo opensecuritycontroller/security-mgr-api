@@ -18,22 +18,36 @@ package org.osc.sdk.manager.api;
 
 import java.util.List;
 
+import org.osc.sdk.manager.Constants;
 import org.osc.sdk.manager.element.DistributedApplianceInstanceElement;
 import org.osc.sdk.manager.element.ManagerDeviceMemberStatusElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Agent Apis". This API is optional and needs to be implemented if
- * {@code ApplianceManagerApi#isAgentSupported()} returns false.
+ * This interface documents the operations used by OSC to retrieve the status of the device members
+ * as well as and trigger events on their respective appliance instances.
+ * <p>
+ * These APIs are required only if the manager is configured to provide device status,
+ * see {@link Constants#PROVIDE_DEVICE_STATUS}.
  */
 @ConsumerType
 public interface ManagerDeviceMemberApi {
 
+    /**
+     * Provides the status information for all the given appliance instances.
+     *
+     * @param list  the collection of appliance instances
+     * @return the status of each provided appliance instance
+     */
     List<ManagerDeviceMemberStatusElement> getFullStatus(List<DistributedApplianceInstanceElement> list);
 
-    void reAuthenticateAppliance();
+    /**
+     * TBD
+     */
+    void reAuthenticateAppliance();  // TODO emanoel: are these needed?
 
+    /**
+     * TBD
+     */
     void syncAgent();
-
-
 }

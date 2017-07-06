@@ -21,30 +21,37 @@ import java.util.List;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Bootstrap information" the manager provides to the appliances.
+ * This interface represents the information provided by the security managers
+ * to be used when bootstrapping the security appliances.
  */
 @ConsumerType
 public interface ApplianceBootstrapInformationElement {
 
+    /**
+     * This interface represents the appliance bootstrap information
+     * contained within a single file.
+     */
     @ConsumerType
     interface BootstrapFileElement {
 
         /**
-         * Name of the file.
-         *
-         * @return
+         * @return the name of the file containing the bootstrap information
          */
         String getName();
 
         /**
-         * For Openstack, The max size of the file contents is 10KB.
-         *
-         * Note that the file contents will be encoded as a Base64 string and the 10KB limit refers to the
-         * number of bytes in the decoded data not the number of characters in the encoded data.
+         * Retrieves the content of the file containing the bootstrap information.
+         * @return the file content base64 encoded
+         * For OpenStack, the max size of the file content is 10KB.
+         * <p>
+         * Note that the 10KB limit refers to the number of bytes in the decoded data
+         * not the number of characters in the encoded data.
          */
         byte[] getContent();
     }
 
+    /**
+     * @return the collection of bootstrap files with their names and content
+     */
     List<BootstrapFileElement> getBootstrapFiles();
-
 }

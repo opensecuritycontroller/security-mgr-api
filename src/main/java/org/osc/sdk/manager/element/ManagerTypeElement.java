@@ -16,12 +16,14 @@
  *******************************************************************************/
 package org.osc.sdk.manager.element;
 
+import org.osc.sdk.manager.Constants;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Type"
+ * This interfaces represents the manager type. It must provide a string with the same
+ * value as the property {@link Constants#PLUGIN_NAME}
  */
 @ConsumerType
 public interface ManagerTypeElement {
-
+    // TODO emanoel: Consider removing this interface, the information seems redundant
 }

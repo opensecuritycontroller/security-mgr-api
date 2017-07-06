@@ -21,10 +21,13 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Contains a List of Security group members
+ * This interface represents a collection of the {@link ManagerSecurityGroupElement}.
  */
 @ProviderType
 public interface SecurityGroupMemberListElement {
 
+    /**
+     * @return the collection of the security group members
+     */
     List<SecurityGroupMemberElement> getMembers();
 }

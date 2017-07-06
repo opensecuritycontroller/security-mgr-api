@@ -23,28 +23,29 @@ import org.osc.sdk.manager.element.TaskElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents Job, Task completion Notifications to Appliance Manager from ISC.
- * ISC will only notify those Jobs, task which were triggered in ISC on behalf of given Manager Connector.
- * e.g. "Propagating Policy or Configuration File to the Appliances"
- *
- * This API is optional and needs to be implemented if the manager wants to be notified of job events from ISC.
+ * This interface defines the operations used by OSC to notify the status of jobs and tasks
+ * the security manager.
+ * <p>
+ * OSC will only notify the status of jobs and tasks which were triggered by actions initiated by the security
+ * manager. e.g. the security manager notifies OSC of changes in policies.
+ * <p>
+ * This API is optional and needs to be implemented only if the manager wants to be notified of job events from OSC.
  */
 @ConsumerType
 public interface IscJobNotificationApi extends AutoCloseable {
 
     /**
-     * @param job
-     *            Job Element {@link JobElement}
-     * @throws Exception
+     * Used by OSC to report job related events
+     * @param job  the job being reported
+     * @throws Exception upon failure
      */
     void reportJobEvent(JobElement job) throws Exception;
 
     /**
-     * @param taskNode
-     *            Task Element {@link TaskElement}
-     * @param objects
-     *            Objects used by given Task
-     * @throws Exception
+     * Used by OSC to report task related events
+     * @param taskNode  the task being reported
+     * @param objects  the objects used by given task
+     * @throws Exception upon failure
      */
     void reportJobTaskEvent(TaskElement taskNode, HashMap<String, String> objects) throws Exception;
 
