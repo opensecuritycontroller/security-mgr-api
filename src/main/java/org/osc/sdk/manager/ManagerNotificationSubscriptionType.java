@@ -44,7 +44,7 @@ public enum ManagerNotificationSubscriptionType {
     }
 
     /**
-     * Gets the {@link ManagerNotificationSubscriptionType} corresponding to the provided string.
+     * Gets the {@link ManagerNotificationSubscriptionType} corresponding to the provided string value.
      * @param text the string value of the targeted type
      * @return the type for the provided string.
      */

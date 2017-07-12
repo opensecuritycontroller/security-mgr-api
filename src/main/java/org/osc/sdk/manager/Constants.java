@@ -22,6 +22,8 @@ package org.osc.sdk.manager;
 public class Constants {
     /**
      * The name of the OSGi property containing the name of the plugin.
+     * <p>
+     * The value for this property must match the value in the Deployment-Name attribute of the plugin .bar file
      */
     public static final String PLUGIN_NAME = "osc.plugin.name";
 
