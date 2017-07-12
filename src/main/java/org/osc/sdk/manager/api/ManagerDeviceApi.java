@@ -130,7 +130,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
     void deleteDeviceMember(String id) throws Exception;
 
     /**
-     * Finds the device member given its identifier and the context of the current virtual system.
+     * Retrieves the device member given its identifier and the context of the current virtual system.
      *
      * @param id the identifier of the targeted device member
      * @return The device member, null if not found
@@ -139,7 +139,7 @@ public interface ManagerDeviceApi extends AutoCloseable {
     ManagerDeviceMemberElement getDeviceMemberById(String id) throws Exception;
 
     /**
-     * Finds the device member given its name and the context of the current virtual system.
+     * Retrieves the device member given its name and the context of the current virtual system.
      *
      * @param name the name of the targeted device member
      * @return The device member, null if not found

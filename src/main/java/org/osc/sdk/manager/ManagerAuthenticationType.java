@@ -21,7 +21,7 @@ package org.osc.sdk.manager;
  */
 public enum ManagerAuthenticationType {
     /**
-     * User name/password authentication.
+     * User name and password authentication.
      */
     BASIC_AUTH("BASIC_AUTH"),
 

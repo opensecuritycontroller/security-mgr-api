@@ -63,7 +63,7 @@ public class Constants {
     public static final String PROVIDE_DEVICE_STATUS = "osc.plugin.manager.provide_device_status";
 
     /**
-     * The name of the OSGi property that indicates whether the security manager can synchronize policy mapping with OSC.
+     * The name of the OSGi property that indicates whether the security manager is capable of synchronizing policy mapping with OSC.
      */
     public static final String SYNC_POLICY_MAPPING = "osc.plugin.manager.sync_policy_mapping";
 }

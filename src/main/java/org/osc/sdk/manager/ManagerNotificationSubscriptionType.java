@@ -34,7 +34,8 @@ public enum ManagerNotificationSubscriptionType {
 
     /**
      * The security manager does not communicate with OSC.
-     */NONE("NONE");
+     */
+    NONE("NONE");
 
     private final String text;
 

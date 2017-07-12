@@ -64,7 +64,7 @@ public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
     void deleteSecurityGroupInterface(String id) throws Exception;
 
     /**
-     * Finds the security group interface by its identifier within the context of the current virtual system.
+     * Retrieves the security group interface by its identifier within the context of the current virtual system.
      *
      * @param id  the identifier of the security group interface
      * @return the security group interface, null if not found
@@ -73,7 +73,7 @@ public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
     ManagerSecurityGroupInterfaceElement getSecurityGroupInterfaceById(String id) throws Exception;
 
     /**
-     * Finds the security group interface by its name within the context of the current virtual system.
+     * Retrieves the security group interface by its name within the context of the current virtual system.
      *
      * @param name  the name of the security group interface
      * @return the security group interface, null if not found
