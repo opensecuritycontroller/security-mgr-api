@@ -1,5 +1,5 @@
 # Security Manager API
-[![Build Status](https://travis-ci.com/opensecuritycontroller/security-mgr-api.svg?token=FzxT1Qx9H6sqEHPcKhqW&branch=master)](https://travis-ci.com/opensecuritycontroller/security-mgr-api)
+[![Build Status](https://travis-ci.org/opensecuritycontroller/security-mgr-api.svg?branch=master)](https://travis-ci.org/opensecuritycontroller/security-mgr-api)
 
 This project defines the interfaces in the Open Source Controller (OSC) Manager Plugin SDK. This SDK defines the functionality OSC expects from a VNF security manager. OSC communicates with the security manager through these interfaces to implement its orchestration and management capabilities.
 
