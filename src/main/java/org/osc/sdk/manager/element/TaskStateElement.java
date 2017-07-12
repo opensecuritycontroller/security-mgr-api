@@ -19,7 +19,10 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Task State"
+ * This interface represents the the current state of a {@link TaskElement}.
+ * <p>
+ * Its implementation must provide a String with one of the following possible values:
+ * 'NOT_RUNNING', 'QUEUED', 'PENDING', 'RUNNING' and 'COMPLETED'
  */
 @ProviderType
 public interface TaskStateElement {

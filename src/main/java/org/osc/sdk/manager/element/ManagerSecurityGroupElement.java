@@ -19,19 +19,19 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * This documents "Manager Security Group"
+ * This interface represents the security groups defined in OSC.
+ * <p>
+ * The assets under protection are grouped in OSC through security groups.
  */
 @ConsumerType
 public interface ManagerSecurityGroupElement {
     /**
-     * @return
-     *         Security Group Id in Manager Connector
+     * @return the identifier of the security group defined by OSC
      */
     String getSGId();
 
     /**
-     * @return
-     *         Security Group Name in Manager
+     * @return the name of the security group defined in OSC
      */
     String getName();
 }

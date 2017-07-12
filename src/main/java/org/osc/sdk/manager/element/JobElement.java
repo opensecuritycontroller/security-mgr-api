@@ -19,26 +19,28 @@ package org.osc.sdk.manager.element;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * This documents "Job"
+ * This interface represents the asynchronous set of activities used by
+ * OSC to synchronize information with external services.
+ * <p>
+ *  Jobs can be triggered upon changes on the virtualized environment or by some user
+ *  action.
+ * This element is used by OSC to notify the security manager of the status of these jobs.
  */
 @ProviderType
 public interface JobElement {
 
     /**
-     * @return
-     *         Long Job unique Identifier
+     * @return the identifier of the job defined by OSC
      */
     Long getId();
 
     /**
-     * @return
-     *         Job's State {@link JobStateElement}
+     * @return the current state of the job, the possible values are 'NOT_RUNNING', 'QUEUED', 'RUNNING' and 'COMPLETED'
      */
     JobStateElement getState();
 
     /**
-     * @return
-     *         Job's Status. {@link JobStatusElement}
+     * @return the current status of the job, the possible values are 'FAILED', 'PASSED' and 'ABORTED'
      */
     JobStatusElement getStatus();
 
