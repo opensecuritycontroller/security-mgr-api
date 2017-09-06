@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.osc.sdk.manager.Constants;
 import org.osc.sdk.manager.element.ManagerSecurityGroupInterfaceElement;
+import org.osc.sdk.manager.element.SecurityGroupInterfaceElement;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -34,26 +35,21 @@ public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
     /**
      * Creates a security group interface within context of the current virtual system
      *
-     * @param name  the name of the security group interface
-     * @param policyId  the identifier of the policy
-     * @param tag  the tag associated with the policy defined by OSC
-     * @return the identifier of the created policy
+     * @param sgiElem  provides context information of the SecurityGroupInterface
+     * @return the identifier of the security group interface
      *
      * @throws Exception upon failure
      */
-    String createSecurityGroupInterface(String name, String policyId, String tag) throws Exception;
+    String createSecurityGroupInterface(SecurityGroupInterfaceElement sgiElem) throws Exception;
 
     /**
      * Updates a security group interface within context of the current virtual system
      *
-     * @param id  the identifier of the security group interface to be updated
-     * @param name  the new name of the security group interface
-     * @param policyId  the identifier of the new policy
-     * @param tag  the new tag associated with the policy defined by OSC
+     * @param sgiElem  provides context information of the SecurityGroupInterface
      *
      * @throws Exception upon failure
      */
-    void updateSecurityGroupInterface(String id, String name, String policyId, String tag) throws Exception;
+    void updateSecurityGroupInterface(SecurityGroupInterfaceElement sgiElem) throws Exception;
 
     /**
      * Deletes a security group interface within context of the current virtual system.

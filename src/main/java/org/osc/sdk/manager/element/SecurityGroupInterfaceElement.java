@@ -18,23 +18,21 @@ package org.osc.sdk.manager.element;
 
 import java.util.Set;
 
-import org.osgi.annotation.versioning.ConsumerType;
+public interface SecurityGroupInterfaceElement {
 
-/**
- * This interface represents the mapping between the policies {@link ManagerPolicyElement}
- * and VLAN tags defined in OSC.
- */
-@ConsumerType
-public interface ManagerSecurityGroupInterfaceElement {
-    /**
-     * @return the identifier of the security group interface defined by OSC
-     */
-    String getSecurityGroupInterfaceId();
+	/**
+	 * Id of the security group interface.
+	 *
+	 * @return the identifier of the security group interface
+	 */
+	String getSecurityGroupInterfaceId();
 
-    /**
-     * @return the name of the security group interface defined by OSC
-     */
-    String getName();
+	/**
+	 * Name of the security group interface.
+	 *
+	 * @return the name of the security group interface
+	 */
+	String getName();
 
 	/**
 	 * Provide manager security group id if the manager is supporting policy
@@ -52,8 +50,11 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 */
 	Set<String> getManagerPolicyIds();
 
-    /**
-     * @return the value of the VLAN tag defined by OSC
-     */
-    String getTag();
+	/**
+	 * The encapsulation tag.
+	 *
+	 * @return the tag
+	 */
+	String getTag();
+
 }
