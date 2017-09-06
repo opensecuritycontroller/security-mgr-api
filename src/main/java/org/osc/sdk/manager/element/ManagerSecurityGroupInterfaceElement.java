@@ -45,7 +45,7 @@ public interface ManagerSecurityGroupInterfaceElement {
 	String getManagerSecurityGroupId();
 
 	/**
-	 * Providers the identifier of the policies supported by the manager
+	 * Provides the identifier of the policies supported by the manager
 	 *
 	 * @return the set of policy identifiers
 	 */

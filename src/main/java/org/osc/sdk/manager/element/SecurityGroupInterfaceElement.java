@@ -21,11 +21,15 @@ import java.util.Set;
 public interface SecurityGroupInterfaceElement {
 
 	/**
+	 * Id of the security group interface.
+	 *
 	 * @return the identifier of the security group interface
 	 */
 	String getSecurityGroupInterfaceId();
 
 	/**
+	 * Name of the security group interface.
+	 *
 	 * @return the name of the security group interface
 	 */
 	String getName();
@@ -46,7 +50,6 @@ public interface SecurityGroupInterfaceElement {
 	Set<String> getManagerPolicyIds();
 
 	/**
-	 *
 	 * @return the encapsulation tag supported by the manager
 	 */
 	String getTag();
