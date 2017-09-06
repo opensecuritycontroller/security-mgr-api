@@ -32,4 +32,9 @@ public interface ManagerPolicyElement {
      * @return the name of the policy defined in the security manager
      */
     String getName();
+
+    /**
+     * @return the identifier of the domain, the policy belongs to in the security manager
+     */
+    String getDomainId();
 }

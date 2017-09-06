@@ -26,7 +26,7 @@ import org.osgi.annotation.versioning.ConsumerType;
 @ConsumerType
 public interface ManagerSecurityGroupElement {
     /**
-     * @return the identifier of the security group defined by OSC
+     * @return the identifier of the security group defined by the manager
      */
     String getSGId();
 
