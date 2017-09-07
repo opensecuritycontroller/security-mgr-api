@@ -70,7 +70,7 @@ public class Constants {
     public static final String SYNC_POLICY_MAPPING = "osc.plugin.manager.sync_policy_mapping";
 
     /**
-     * The name of the OSGi property that indicates whether the security manager supports multiple tags.
+     * The name of the OSGi property that indicates whether the security manager supports multiple policies.
      */
     public static final String SUPPORT_MULTIPLE_POLICIES = "osc.plugin.manager.support_multiple_policies";
 }

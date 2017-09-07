@@ -35,21 +35,21 @@ public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
     /**
      * Creates a security group interface within context of the current virtual system
      *
-     * @param sgiElem  provides context information of the SecurityGroupInterface
-     * @return the identifier of the security group interface
+     * @param sgiElement  the information needed to create a security group interface
+     * @return the identifier of the security group interface defined by the security manager
      *
      * @throws Exception upon failure
      */
-    String createSecurityGroupInterface(SecurityGroupInterfaceElement sgiElem) throws Exception;
+    String createSecurityGroupInterface(SecurityGroupInterfaceElement sgiElement) throws Exception;
 
     /**
      * Updates a security group interface within context of the current virtual system
      *
-     * @param sgiElem  provides context information of the SecurityGroupInterface
+     * @param sgiElement  the information needed to update a security group interface
      *
      * @throws Exception upon failure
      */
-    void updateSecurityGroupInterface(SecurityGroupInterfaceElement sgiElem) throws Exception;
+    void updateSecurityGroupInterface(SecurityGroupInterfaceElement sgiElement) throws Exception;
 
     /**
      * Deletes a security group interface within context of the current virtual system.
