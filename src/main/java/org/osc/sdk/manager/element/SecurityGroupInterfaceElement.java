@@ -20,35 +20,35 @@ import java.util.Set;
 
 public interface SecurityGroupInterfaceElement {
 
-    /**
-     * @return the identifier of the security group interface
-     */
-    String getSecurityGroupInterfaceId();
+	/**
+	 * @return the identifier of the security group interface
+	 */
+	String getSecurityGroupInterfaceId();
 
-    /**
-     * @return the name of the security group interface
-     */
-    String getName();
+	/**
+	 * @return the name of the security group interface
+	 */
+	String getName();
 
-    /**
-     * Provide manager security group id if the manager is supporting policy
-     * mapping and security group.
-     *
-     * @return the manager security group identifier
-     */
-    String getManagerSecurityGroupId();
+	/**
+	 * Provide manager security group id if the manager is supporting policy
+	 * mapping and security group.
+	 *
+	 * @return the manager security group identifier
+	 */
+	String getManagerSecurityGroupId();
 
-    /**
-     * Provides the identifier of the policies supported by the manager
-     *
-     * @return the set of policy identifiers
-     */
-    Set<String> getManagerPolicyIds();
+	/**
+	 * Provides the identifier of the policies supported by the manager
+	 *
+	 * @return the set of policy identifiers
+	 */
+	Set<String> getManagerPolicyIds();
 
-    /**
-     *
-     * @return the encapsulation tag supported by the manager
-     */
-    String getTag();
+	/**
+	 *
+	 * @return the encapsulation tag supported by the manager
+	 */
+	String getTag();
 
 }
