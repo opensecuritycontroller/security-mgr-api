@@ -63,14 +63,14 @@ public interface ManagerSecurityGroupInterfaceElement {
      *
      * @return the identifier of the security group defined by the manager
      */
-	String getManagerSecurityGroupId();
+    String getManagerSecurityGroupId();
 
-	/**
+    /**
      * Providers the identifier of the policies supported by the manager
      *
      * @return the set of policy identifiers
      */
-	Set<String> getManagerPolicyIds();
+    Set<String> getManagerPolicyIds();
 
     /**
      * @return the encapsulation tag supported by the manager
