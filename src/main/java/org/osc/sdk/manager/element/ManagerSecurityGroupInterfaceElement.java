@@ -36,6 +36,7 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 */
 	String getName();
 
+<<<<<<< HEAD
 	/**
 	 * Provides the identifier of the security group defined by security managers that support policy mapping and
 	 * security groups
@@ -55,4 +56,25 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 * @return the encapsulation tag supported by the manager
 	 */
 	String getTag();
+=======
+    /**
+     * Provides the identifier of the security group defined by security managers that support policy mapping and
+     * security groups
+     *
+     * @return the identifier of the security group defined by the manager
+     */
+	String getManagerSecurityGroupId();
+
+	/**
+     * Providers the identifier of the policies supported by the manager
+     *
+     * @return the set of policy identifiers
+     */
+	Set<String> getManagerPolicyIds();
+
+    /**
+     * @return the encapsulation tag supported by the manager
+     */
+    String getTag();
+>>>>>>> Addressing code reviews
 }
