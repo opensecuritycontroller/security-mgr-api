@@ -18,7 +18,10 @@ package org.osc.sdk.manager.element;
 
 import java.util.Set;
 
-public interface SecurityGroupInterfaceElement {
+import org.osgi.annotation.versioning.ProviderType;
+
+@ProviderType
+public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInterfaceElement {
 
 <<<<<<< HEAD
     /**
@@ -44,11 +47,13 @@ public interface SecurityGroupInterfaceElement {
 	/**
 	 * @return the identifier of the security group interface
 	 */
+	@Override
 	String getSecurityGroupInterfaceId();
 
 	/**
 	 * @return the name of the security group interface
 	 */
+	@Override
 	String getName();
 
 	/**
@@ -57,6 +62,7 @@ public interface SecurityGroupInterfaceElement {
 	 *
 	 * @return the manager security group identifier
 	 */
+	@Override
 	String getManagerSecurityGroupId();
 
 >>>>>>> fixing more format issues
@@ -65,6 +71,7 @@ public interface SecurityGroupInterfaceElement {
 	 *
 	 * @return the set of policy identifiers
 	 */
+	@Override
 	Set<String> getManagerPolicyIds();
 
 	/**
@@ -95,6 +102,7 @@ public interface SecurityGroupInterfaceElement {
 	 *
 	 * @return the encapsulation tag supported by the manager
 	 */
+	@Override
 	String getTag();
 >>>>>>> fixing more format issues
 
