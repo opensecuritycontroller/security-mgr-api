@@ -55,5 +55,4 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 * @return the encapsulation tag supported by the manager
 	 */
 	String getTag();
-
 }
