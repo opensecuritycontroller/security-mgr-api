@@ -23,27 +23,6 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInterfaceElement {
 
-<<<<<<< HEAD
-    /**
-     * @return the identifier of the security group interface
-     */
-    String getSecurityGroupInterfaceId();
-
-    /**
-     * @return the name of the security group interface
-     */
-    String getName();
-
-    /**
-     * Provide manager security group id if the manager is supporting policy
-     * mapping and security group.
-     *
-     * @return the manager security group identifier
-     */
-    String getManagerSecurityGroupId();
-
-<<<<<<< HEAD
-=======
 	/**
 	 * @return the identifier of the security group interface
 	 */
@@ -65,7 +44,6 @@ public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInter
 	@Override
 	String getManagerSecurityGroupId();
 
->>>>>>> fixing more format issues
 	/**
 	 * Provides the identifier of the policies supported by the manager
 	 *
@@ -75,35 +53,10 @@ public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInter
 	Set<String> getManagerPolicyIds();
 
 	/**
-<<<<<<< HEAD
-=======
-    /**
-     * Provides the identifier of the policies supported by the manager
-     *
-     * @return the set of policy identifiers
-     */
-    Set<String> getManagerPolicyIds();
-
-<<<<<<< HEAD
-	/**
-	 *
->>>>>>> Addressing code reviews
-	 * @return the encapsulation tag supported by the manager
-	 */
-	String getTag();
-=======
-    /**
-     *
-     * @return the encapsulation tag supported by the manager
-     */
-    String getTag();
->>>>>>> fixing format issues
-=======
 	 *
 	 * @return the encapsulation tag supported by the manager
 	 */
 	@Override
 	String getTag();
->>>>>>> fixing more format issues
 
 }
