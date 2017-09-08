@@ -39,6 +39,7 @@ import org.osgi.annotation.versioning.ConsumerType;
  * <li> {@link Constants#PROVIDE_DEVICE_STATUS}
  * <li> {@link Constants#SYNC_POLICY_MAPPING}
  * <li> {@link Constants#SYNC_SECURITY_GROUP}
+ * <li> {@link Constants#SUPPORT_MULTIPLE_POLICIES}
  * </ul>
  */
 @ConsumerType
