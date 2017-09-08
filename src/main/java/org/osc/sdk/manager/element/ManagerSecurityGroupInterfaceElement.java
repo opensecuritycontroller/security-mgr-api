@@ -51,9 +51,9 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 */
 	Set<String> getManagerPolicyIds();
 
-    /**
-     * @return the encapsulation tag supported by the manager
-     */
-    String getTag();
+	/**
+	 * @return the encapsulation tag supported by the manager
+	 */
+	String getTag();
 
 }
