@@ -16,47 +16,9 @@
  *******************************************************************************/
 package org.osc.sdk.manager.element;
 
-import java.util.Set;
-
 import org.osgi.annotation.versioning.ProviderType;
 
 @ProviderType
 public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInterfaceElement {
-
-	/**
-	 * @return the identifier of the security group interface
-	 */
-	@Override
-	String getSecurityGroupInterfaceId();
-
-	/**
-	 * @return the name of the security group interface
-	 */
-	@Override
-	String getName();
-
-	/**
-	 * Provide manager security group id if the manager is supporting policy
-	 * mapping and security group.
-	 *
-	 * @return the manager security group identifier
-	 */
-	@Override
-	String getManagerSecurityGroupId();
-
-	/**
-	 * Provides the identifier of the policies supported by the manager
-	 *
-	 * @return the set of policy identifiers
-	 */
-	@Override
-	Set<String> getManagerPolicyIds();
-
-	/**
-	 *
-	 * @return the encapsulation tag supported by the manager
-	 */
-	@Override
-	String getTag();
 
 }
