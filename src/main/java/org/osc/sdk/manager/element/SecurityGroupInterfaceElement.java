@@ -18,6 +18,9 @@ package org.osc.sdk.manager.element;
 
 import org.osgi.annotation.versioning.ProviderType;
 
+/**
+ * This interface represents the information needed by the manager to create the policy mapping
+ */
 @ProviderType
 public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInterfaceElement {
 
