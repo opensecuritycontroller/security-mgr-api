@@ -36,31 +36,31 @@ public interface ManagerSecurityGroupApi extends AutoCloseable {
      * Creates a security group.
      *
      * @param name the name of the security group
-     * @param iscId  the unique identifier of the security group defined by OSC
+     * @param oscSgId  the unique identifier of the security group defined by OSC
      * @param memberList the members within the security group
      *
      * @return the identifier of the security group defined by the security manager
      * @throws Exception upon failure
      */
-    String createSecurityGroup(String name, String iscId, SecurityGroupMemberListElement memberList) throws Exception;
+    String createSecurityGroup(String name, String oscSgId, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Updates security group.
      *
-     * @param sgId  the identifier of the security group
+     * @param mgrSecurityGroupId  the identifier of the manager security group
      * @param name  the new name for the security group
      * @param memberList  the members within the security group
      * @throws Exception upon failure
      */
-    void updateSecurityGroup(String sgId, String name, SecurityGroupMemberListElement memberList) throws Exception;
+    void updateSecurityGroup(String mgrSecurityGroupId, String name, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Deletes a security group.
      *
-     * @param sgId  the identifier of the security group
+     * @param mgrSecurityGroupId  the identifier of the manager security group
      * @throws Exception upon failure
      */
-    void deleteSecurityGroup(String sgId) throws Exception;
+    void deleteSecurityGroup(String mgrSecurityGroupId) throws Exception;
 
     /**
      * Retrieves all the security groups from the security manager.
@@ -72,11 +72,11 @@ public interface ManagerSecurityGroupApi extends AutoCloseable {
 
     /**
      * Retrieves the security group given its identifier.
-     * @param sgId the identifier of the security group
+     * @param mgrSecurityGroupId the identifier of the manager security group
      * @return the security group
      * @throws Exception upon failure
      */
-    ManagerSecurityGroupElement getSecurityGroupById(String sgId) throws Exception;
+    ManagerSecurityGroupElement getSecurityGroupById(String mgrSecurityGroupId) throws Exception;
 
     @Override
     void close();

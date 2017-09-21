@@ -16,12 +16,44 @@
  *******************************************************************************/
 package org.osc.sdk.manager.element;
 
+import java.util.Set;
+
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * This interface represents the information needed by the manager plugin to create the policy mapping.
  */
 @ProviderType
-public interface SecurityGroupInterfaceElement extends ManagerSecurityGroupInterfaceElement {
+public interface SecurityGroupInterfaceElement {
+
+	/**
+	 * @return the identifier of the security group interface defined by the manager
+	 */
+	String getManagerSecurityGroupInterfaceId();
+
+	/**
+	 * @return the name of the security group interface defined by OSC
+	 */
+	String getName();
+
+	/**
+	 * Provides the identifier of the security group defined by security managers that support policy mapping and
+	 * security groups
+	 *
+	 * @return the identifier of the security group defined by the manager
+	 */
+	String getManagerSecurityGroupId();
+
+	/**
+	 * Provides the context information of manager policy element
+	 *
+	 * @return the set of manager policy elements
+	 */
+	Set<ManagerPolicyElement> getManagerPolicyElements();
+
+	/**
+	 * @return the encapsulation tag supported by the manager
+	 */
+	String getTag();
 
 }

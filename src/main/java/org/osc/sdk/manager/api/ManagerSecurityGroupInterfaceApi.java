@@ -54,19 +54,19 @@ public interface ManagerSecurityGroupInterfaceApi extends AutoCloseable {
     /**
      * Deletes a security group interface within context of the current virtual system.
      *
-     * @param id the identifier of the security group interface to be deleted
+     * @param mgrSecurityGroupInterfaceId the identifier of the manager security group interface to be deleted
      * @throws Exception upon failure
      */
-    void deleteSecurityGroupInterface(String id) throws Exception;
+    void deleteSecurityGroupInterface(String mgrSecurityGroupInterfaceId) throws Exception;
 
     /**
      * Retrieves the security group interface by its identifier within the context of the current virtual system.
      *
-     * @param id  the identifier of the security group interface
+     * @param mgrSecurityGroupInterfaceId  the identifier of the manager security group interface
      * @return the security group interface, null if not found
      * @throws Exception upon failure
      */
-    ManagerSecurityGroupInterfaceElement getSecurityGroupInterfaceById(String id) throws Exception;
+    ManagerSecurityGroupInterfaceElement getSecurityGroupInterfaceById(String mgrSecurityGroupInterfaceId) throws Exception;
 
     /**
      * Retrieves the security group interface by its name within the context of the current virtual system.

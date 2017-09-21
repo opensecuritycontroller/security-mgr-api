@@ -26,8 +26,9 @@ import org.osgi.annotation.versioning.ConsumerType;
  */
 @ConsumerType
 public interface ManagerSecurityGroupInterfaceElement {
+
 	/**
-	 * @return the identifier of the security group interface defined by OSC
+	 * @return the identifier of the security group interface defined by the manager
 	 */
 	String getSecurityGroupInterfaceId();
 
@@ -42,14 +43,14 @@ public interface ManagerSecurityGroupInterfaceElement {
 	 *
 	 * @return the identifier of the security group defined by the manager
 	 */
-	String getManagerSecurityGroupId();
+	String getSecurityGroupId();
 
 	/**
-	 * Provides the identifier of the policies supported by the manager
+	 * Provides the context information of manager policy element
 	 *
-	 * @return the set of policy identifiers
+	 * @return the set of manager policy elements
 	 */
-	Set<String> getManagerPolicyIds();
+	Set<ManagerPolicyElement> getManagerPolicyElements();
 
 	/**
 	 * @return the encapsulation tag supported by the manager
