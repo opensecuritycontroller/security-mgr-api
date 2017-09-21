@@ -36,24 +36,23 @@ public interface ManagerSecurityGroupApi extends AutoCloseable {
      * Creates a security group.
      *
      * @param name the name of the security group
-     * @param sgId  the unique identifier of the security group defined by OSC
+     * @param oscSgId  the unique identifier of the security group defined by OSC
      * @param memberList the members within the security group
      *
      * @return the identifier of the security group defined by the security manager
      * @throws Exception upon failure
      */
-    String createSecurityGroup(String name, String sgId, SecurityGroupMemberListElement memberList) throws Exception;
+    String createSecurityGroup(String name, String oscSgId, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Updates security group.
      *
      * @param mgrSecurityGroupId  the identifier of the manager security group
-     * @param sgId  the identifier of the security group
      * @param name  the new name for the security group
      * @param memberList  the members within the security group
      * @throws Exception upon failure
      */
-    void updateSecurityGroup(String mgrSecurityGroupId, String sgId, String name, SecurityGroupMemberListElement memberList) throws Exception;
+    void updateSecurityGroup(String mgrSecurityGroupId, String name, SecurityGroupMemberListElement memberList) throws Exception;
 
     /**
      * Deletes a security group.
