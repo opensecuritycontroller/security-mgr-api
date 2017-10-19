@@ -29,5 +29,11 @@ addons:
       - oracle-java8-installer
 install: 
     true
+addons:
+  sonarcloud:
+    organization: "opensecuritycontroller-org"
+    token:
+      secure: "wai62O44fsesw24Y97AdrxyQ/ykLEp3hxyHd9BfVXOKw7jjBEZZFpAL3OtXjLc198hta7Ne5bFaduXw3D3RgdBNazrY20vliHmkIn+JY/fzcbdRTIogGcXSaRJeBeUMnDj1KXX2VWan2X8ibTwumTHrySowDOPCSNlMuflbA6BtmZkheC9zZK6XiQYDDd5f+Deg6eMt3sjzXVEkIWLn/0zvTjJzP0yiE2dRe4QzOCCrJvSsF/pPVAJ+HyVgt4LAhol5QyR56u5+fQYMc98k8y8pElZkXkA3bwj6tc/jteVu8oy6zZLWhYLbu1jXyaNTE/+iofyv1EXnzDxZas0GipoTYGXrjZ7rd6aOBAv81p4+ZAEmg5LIdC1yM34F/tDf48kIAmmruxB7aZtUvsNj7XcdmPBCFQDKOxZ6O98XkB8R5/WibeaYzUcOSiAF8FT6x6x69Hf8vcIkIAvEsrilO+EfOzehtV/V6ktVPhPYV5m+FVNIRBLLSp1i/auUi7pnI4NE3ubm+PYpdguyOTbDi6Q5hVd+w5r/GLimEBLpkyKwlDbUKGjs07dZb+e53HfTlqZUNnN1Wc+PEsCrFYlVMVdZ87cMtaiXlXln749ni4uqBz+Pteqy9iildYpnXpdG4KBJXmY+ZXEDfg+BSv7nAzblC3jFzkMGxWQdI45krivk="    
 script:
-    mvn install
+# the following command line builds the project, executes the SonarCloud analysis
+    mvn clean install sonar:sonar
